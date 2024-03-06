@@ -1,12 +1,13 @@
 "use client";
+
 import { Box } from "@chakra-ui/react";
 
-function About() {
+function Products() {
   return (
     <Box>
-      <h1>Its About me</h1>
+      <h1>the products page</h1>
     </Box>
   );
 }
 
-export default About;
+export default Products;
