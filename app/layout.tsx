@@ -1,9 +1,10 @@
+import { Box } from "@chakra-ui/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Link from "next/link";
-import { LayoutProps } from "./types";
-import { Providers } from "./providers";
+import Header from "./components/Header";
 import { fonts } from "./fonts";
+import { Providers } from "./providers";
+import { LayoutProps } from "./types";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,17 +16,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html lang="en" className={fonts.rubik.variable}>
+    <html lang='en' className={fonts.rubik.variable}>
       <body className={inter.className}>
-        <header>
-          <Link href="/">
-            <h1>NextJS webbshop</h1>
-          </Link>
-        </header>
-        <Providers>{children}</Providers>
-        <footer>
-          <p>© 2024</p>
-        </footer>
+        <Providers>
+          <header>
+            <Header />
+          </header>
+
+          <main>
+            <Box h='100vh' m='2rem' bg='beige'>
+              {children}
+            </Box>
+          </main>
+          <footer>
+            <p>© 2024</p>
+          </footer>
+        </Providers>
       </body>
     </html>
   );
