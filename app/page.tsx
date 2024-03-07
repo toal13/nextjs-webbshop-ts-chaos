@@ -1,15 +1,41 @@
 "use client";
 
 import { products } from "@/data";
-import { Box, Grid, GridItem, Image } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Image } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <Box>
-      <p>Det här är startsidan. Här ska alla produkterna visas.</p>
-      <div>
-        <h2>Products</h2>
-        <Grid templateColumns='repeat(4, 1fr)' gap={3}>
+    <Flex flexDir='column'>
+      <Flex
+        width='100%'
+        // mt={{ base: "0", md: "6rem" }}
+        flexDir={{ base: "column", md: "row" }}
+      >
+        <Box width={{ base: "100%", md: "50%" }} height='80vh'>
+          <Image
+            src={
+              "https://images.pexels.com/photos/7175564/pexels-photo-7175564.jpeg?auto=compress&cs=tinysrgb&w=800"
+            }
+            alt=''
+            height='100%'
+            width='100%'
+            objectFit='cover'
+          />
+        </Box>
+        <Box width='50%' height='80vh' display={{ base: "none", md: "block" }}>
+          <Image
+            src={
+              "https://images.pexels.com/photos/6580416/pexels-photo-6580416.jpeg?auto=compress&cs=tinysrgb&w=800"
+            }
+            alt=''
+            height='100%'
+            width='100%'
+            objectFit='cover'
+          />
+        </Box>
+      </Flex>
+      <Box>
+        <Grid templateColumns='repeat(1, 1fr)' gap={3}>
           {products.map((product, index) => (
             <GridItem key={index}>
               <Box width='300px' height='200px'>
@@ -24,7 +50,7 @@ export default function Home() {
             </GridItem>
           ))}
         </Grid>
-      </div>
-    </Box>
+      </Box>
+    </Flex>
   );
 }

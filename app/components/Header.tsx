@@ -21,14 +21,7 @@ export default function Header() {
 
   return (
     <header>
-      <Flex
-        flexDir='column'
-        position={{ base: "sticky", md: "fixed" }}
-        top='0'
-        bg='white'
-        zIndex='2'
-        width='100% '
-      >
+      <Flex flexDir='column' bg='white' zIndex='2' width='100% '>
         <Flex
           justify='space-between'
           alignItems='center'
