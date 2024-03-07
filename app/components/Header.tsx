@@ -11,19 +11,20 @@ import {
   Link,
   Stack,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { IoPersonOutline } from "react-icons/io5";
 import { LuHeart } from "react-icons/lu";
+import NavLinks from "./NavLinks";
 
 export default function Header() {
   const [isOpened, setIsOpened] = useState(false);
+  const isLargeScreen = useBreakpointValue({ base: false, md: true });
 
-  const toggleMenu = () => {
-    console.log("its working");
-    setIsOpened(!isOpened);
-  };
+  const handleToggle = () => setIsOpened(!isOpened);
+
   return (
     <header>
       <Flex flexDir='column'>
@@ -36,7 +37,7 @@ export default function Header() {
           //  fontSize={{ base: "0.6rem", md: "1rem" }} // This is not working
         >
           <Flex align='center' gap='2rem' width='30%'>
-            <Box display={{ base: "block", md: "none" }} onClick={toggleMenu}>
+            <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
               <IconButton
                 aria-label='Toggle menu'
                 border='none'
@@ -104,61 +105,13 @@ export default function Header() {
           </Flex>
         </Flex>
 
-        <Collapse in={isOpened || true} animateOpacity>
-          <Flex
-            justify='center'
-            p='0.3rem'
-            bg='#E4A757'
-            gap='2rem'
-            fontSize='1.2rem'
-            display={isOpened ? "flex" : "none"}
-            css={{
-              "@media (max-width: 768px)": {
-                textAlign: "left",
-                flexDirection: "column",
-                padding: "1.5rem",
-                fontSize: "1.2rem",
-              },
-              "@media (min-width: 769px)": {
-                display: "flex",
-                flexDirection: "row",
-              },
-            }}
-          >
-            <Link
-              href='/'
-              color='white'
-              _hover={{ color: "brown" }}
-              textDecor='none'
-            >
-              Home
-            </Link>
-            <Link
-              href='/about'
-              color='white'
-              _hover={{ color: "brown" }}
-              textDecor='none'
-            >
-              About Us
-            </Link>
-            <Link
-              href='/products'
-              color='white'
-              _hover={{ color: "brown" }}
-              textDecor='none'
-            >
-              Products
-            </Link>
-            <Link
-              href='/inspiration'
-              color='white'
-              _hover={{ color: "brown" }}
-              textDecor='none'
-            >
-              Inspiration
-            </Link>
-          </Flex>
-        </Collapse>
+        {isLargeScreen && <NavLinks />}
+
+        {!isLargeScreen && (
+          <Collapse in={isOpened}>
+            <NavLinks />
+          </Collapse>
+        )}
       </Flex>
     </header>
   );
