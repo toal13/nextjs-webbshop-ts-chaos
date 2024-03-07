@@ -11,7 +11,7 @@ export default function Home() {
       <Box>
         <Grid templateColumns='repeat(1, 1fr)' gap={3}>
           {products.map((product, index) => (
-            <GridItem key={index}>
+            <GridItem data-cy='product' key={index}>
               <Box width='300px' height='200px'>
                 <Image
                   src={product.image}

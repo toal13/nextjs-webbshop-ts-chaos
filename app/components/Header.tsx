@@ -4,8 +4,8 @@ import {
   Box,
   Collapse,
   Flex,
+  Heading,
   IconButton,
-  Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
@@ -43,9 +43,9 @@ export default function Header() {
             </Box>
             <SearchNav />
           </Flex>
-          <Text w='30%' fontSize={{ base: "1rem", md: "1.4rem" }}>
-            NEXT <br /> DESIGN
-          </Text>
+          <Heading as='h1' w='30%' fontSize={{ base: "1rem", md: "1.4rem" }}>
+            NEXT DESIGN
+          </Heading>
           <NavIcons />
         </Flex>
 
