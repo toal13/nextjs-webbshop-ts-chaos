@@ -20,14 +20,9 @@ export default function RootLayout({ children }: LayoutProps) {
     <html lang="en" className={fonts.rubik.variable}>
       <body className={inter.className}>
         <Providers>
-          <header>
-            <Header />
-          </header>
-
+          <Header />
           <main>
-            <Box h="100vh" m="2rem" bg="beige">
-              {children}
-            </Box>
+            <Box>{children}</Box>
           </main>
 
           <Footer />
