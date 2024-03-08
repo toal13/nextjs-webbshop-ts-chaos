@@ -5,37 +5,43 @@ export default function NavLinks() {
     <Flex
       justify='center'
       p='0.3rem'
-      bg='#E4A757'
+      //   bg='#f3f1ed'
       gap='2rem'
+      borderTop='1px solid #e1dcd6'
       fontSize='1.2rem'
       flexDir={{ base: "column", md: "row" }}
       textAlign={{ base: "left", md: "center" }}
       padding={{ base: "0.5rem", md: "0.5rem" }}
     >
-      <Link href='/' color='white' _hover={{ color: "brown" }} textDecor='none'>
+      <Link
+        href='/'
+        _hover={{ color: "brown" }}
+        textDecor='none'
+        paddingLeft='1rem'
+      >
         Home
       </Link>
       <Link
         href='/about'
-        color='white'
         _hover={{ color: "brown" }}
         textDecor='none'
+        paddingLeft='1rem'
       >
         About Us
       </Link>
       <Link
         href='/products'
-        color='white'
         _hover={{ color: "brown" }}
         textDecor='none'
+        paddingLeft='1rem'
       >
         Products
       </Link>
       <Link
         href='/inspiration'
-        color='white'
         _hover={{ color: "brown" }}
         textDecor='none'
+        paddingLeft='1rem'
       >
         Inspiration
       </Link>
