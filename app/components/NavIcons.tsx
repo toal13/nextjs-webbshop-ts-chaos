@@ -2,8 +2,11 @@ import { Circle, Flex, Link } from "@chakra-ui/react";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { IoPersonOutline } from "react-icons/io5";
 import { LuHeart } from "react-icons/lu";
+import { useCart } from "../contexts/CartContext";
 
 export default function NavIcons() {
+  const { cart } = useCart();
+
   return (
     <Flex
       position='relative'
@@ -35,7 +38,7 @@ export default function NavIcons() {
         right='-0.9rem'
         data-cy='cart-items-count-badge'
       >
-        0
+        {cart.length}
       </Circle>
     </Flex>
   );
