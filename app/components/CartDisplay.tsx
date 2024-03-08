@@ -1,6 +1,5 @@
 "use client";
 import {
-  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -8,6 +7,7 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Icon,
+  Link,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -32,9 +32,7 @@ export default function CartDisplay() {
         key={drawerSize}
         fontSize={{ base: "1.5rem", md: "1.7rem" }}
         _hover={{ color: "brown" }}
-      >
-        <HiOutlineShoppingBag />
-      </Icon>
+      ></Icon>
 
       <Drawer onClose={onClose} isOpen={isOpen} size={size}>
         <DrawerOverlay />
@@ -60,15 +58,21 @@ export default function CartDisplay() {
             <CartItem />
             <CartItem />
           </DrawerBody>
-          <Button
+
+          <Link
             m='3rem'
-            onClick={onClose}
+            padding='0.5rem'
             fontSize='1.5rem'
+            textAlign='center'
             bg='#E4A757'
+            borderRadius='5px'
             _hover={{ bg: "#efdbc2" }}
+            href='/checkout'
+            data-cy='cart-link'
           >
+            {" "}
             Checkout
-          </Button>
+          </Link>
         </DrawerContent>
       </Drawer>
     </>

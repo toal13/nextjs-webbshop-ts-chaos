@@ -1,4 +1,5 @@
 import {
+  Box,
   Card,
   CardBody,
   CardFooter,
@@ -18,19 +19,21 @@ export default function CartItem() {
       direction='row'
       overflow='hidden'
       variant='outline'
-      justify='center'
+      justify='justify-between'
       align='center'
       p='0.5rem'
-      gap='2rem'
-      mb='1rem'
+      gap={{ base: "1rem", md: "2rem" }}
+      width={{ base: "100%", md: "60%" }}
     >
-      <Image
-        objectFit='cover'
-        w='150px'
-        h='180px'
-        src='https://images.pexels.com/photos/3144581/pexels-photo-3144581.jpeg?auto=compress&cs=tinysrgb&w=800'
-        alt='dining table'
-      />
+      <Box w='150px' h='150px'>
+        <Image
+          objectFit='cover'
+          width='100%'
+          height='100%'
+          src='https://images.pexels.com/photos/3144581/pexels-photo-3144581.jpeg?auto=compress&cs=tinysrgb&w=800'
+          alt='dining table'
+        />
+      </Box>
       <Square
         position='absolute'
         top='1rem'
@@ -48,10 +51,14 @@ export default function CartItem() {
       <Stack>
         <CardBody flexDir='column' gap='3'>
           <Heading size='md'>Dining table</Heading>
-          <Text py='2'>Lorem ipsum dolor sit amet.</Text>
+          <Text py='2'>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit,
+            deleniti.
+          </Text>
         </CardBody>
 
         <CardFooter
+          flex='10'
           fontSize='1.3rem'
           justify='space-between'
           data-cy='total-price'

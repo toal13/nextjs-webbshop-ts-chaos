@@ -1,7 +1,7 @@
 import { Circle, Flex, Link } from "@chakra-ui/react";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 import { IoPersonOutline } from "react-icons/io5";
 import { LuHeart } from "react-icons/lu";
-import CartDisplay from "./CartDisplay";
 
 export default function NavIcons() {
   return (
@@ -16,6 +16,15 @@ export default function NavIcons() {
       <Link href='/' color='black' _hover={{ color: "brown" }} textDecor='none'>
         <LuHeart />
       </Link>
+      <Link
+        href='/checkout'
+        color='black'
+        _hover={{ color: "brown" }}
+        textDecor='none'
+        data-cy='cart-link'
+      >
+        <HiOutlineShoppingBag />
+      </Link>
       <Circle
         size='25px'
         bg='tomato'
@@ -28,7 +37,6 @@ export default function NavIcons() {
       >
         0
       </Circle>
-      <CartDisplay />
     </Flex>
   );
 }
