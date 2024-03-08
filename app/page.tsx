@@ -12,13 +12,13 @@ import {
 } from "@chakra-ui/react";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { LuHeart } from "react-icons/lu";
+import HomePageTop from "./components/HomePageTop";
 
 export default function Home() {
   return (
-    <Box>
-      <p>Det här är startsidan. Här ska alla produkterna visas.</p>
-      <div>
-        <h2>Products</h2>
+    <Flex flexDir='column'>
+      <HomePageTop />
+      <Box>
         <SimpleGrid columns={4} gap={3}>
           {products.map((product, index) => (
             <GridItem key={index}>
@@ -29,6 +29,7 @@ export default function Home() {
                   objectFit="cover"
                   width="100%"
                   maxHeight="200px"
+
                 />
                 <Box mt={2} flex="1">
                   <Flex
@@ -56,7 +57,7 @@ export default function Home() {
             </GridItem>
           ))}
         </SimpleGrid>
-      </div>
-    </Box>
+      </Box>
+    </Flex>
   );
 }
