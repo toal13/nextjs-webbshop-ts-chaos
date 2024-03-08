@@ -32,7 +32,9 @@ export default function CartDisplay() {
         key={drawerSize}
         fontSize={{ base: "1.5rem", md: "1.7rem" }}
         _hover={{ color: "brown" }}
-      ></Icon>
+      >
+        <HiOutlineShoppingBag />
+      </Icon>
 
       <Drawer onClose={onClose} isOpen={isOpen} size={size}>
         <DrawerOverlay />
