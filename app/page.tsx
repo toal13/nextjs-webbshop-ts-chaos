@@ -5,6 +5,7 @@ import {
   Box,
   Flex,
   GridItem,
+  Icon,
   Image,
   Link,
   SimpleGrid,
@@ -13,15 +14,23 @@ import {
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { LuHeart } from "react-icons/lu";
 import HomePageTop from "./components/HomePageTop";
+import { useCart } from "./contexts/CartContext";
 
 export default function Home() {
+  const { addToCart } = useCart();
+
   return (
     <Flex flexDir='column'>
       <HomePageTop />
-      <SimpleGrid columns={4} gap={3}>
+      <SimpleGrid
+        width='90%'
+        m='auto'
+        columns={{ base: 1, md: 3, lg: 4 }}
+        gap={3}
+      >
         {products.map((product) => (
           <GridItem key={product.id}>
-            <Flex flexDirection='column' width='300px' height='100%'>
+            <Flex flexDirection='column' height='100%'>
               <Image
                 src={product.image}
                 alt={product.title}
@@ -49,7 +58,13 @@ export default function Home() {
                 >
                   <LuHeart />
                 </Link>
-                <HiOutlineShoppingBag />
+                <Icon
+                  fontSize='1.2rem'
+                  _hover={{ cursor: "pointer", color: "brown" }}
+                  onClick={addToCart}
+                >
+                  <HiOutlineShoppingBag />
+                </Icon>
               </Flex>
             </Flex>
           </GridItem>

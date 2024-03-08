@@ -5,8 +5,8 @@ import { PropsWithChildren, createContext, useContext, useState } from "react";
 interface CartContextValue {
   cart: CartItem[];
   addToCart: (product: Product) => void;
-  // removeFromCart
-  // clearCart
+  removeFromCart: (product: Product) => void;
+  clearCart: () => void;
 }
 
 const CartContext = createContext({} as CartContextValue);
@@ -19,13 +19,28 @@ function CartProvider(props: PropsWithChildren) {
 
   const addToCart = (product: Product) => {
     // 1. Om produkten redan finns i kundvagnen, öka antalet
-    // 2. Annars, lägg till produkten i kundvagnen med antal 1
+    const isProductPresent = cart.find(
+      (existingProduct) => existingProduct.id === product.id
+    );
+    if (isProductPresent) {
+      setCart([...cart, { ...product, quantity: cart.length + 1 }]);
+    } else {
+      // 2. Annars, lägg till produkten i kundvagnen med antal 1
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
+  const removeFromCart = (product: Product) => {
+    console.log("I was removed");
+  };
 
-    setCart([...cart, { ...product, quantity: 1 }]);
+  const clearCart = () => {
+    console.log("You removed all the products");
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, clearCart }}
+    >
       {props.children}
     </CartContext.Provider>
   );

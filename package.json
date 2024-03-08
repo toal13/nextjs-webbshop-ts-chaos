@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "postinstall": "plugga init",
-    "dev": "next dev --port 5174",
+    "dev": "next dev --port 5173",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
