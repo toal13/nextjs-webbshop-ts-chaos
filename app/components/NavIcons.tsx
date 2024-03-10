@@ -8,7 +8,7 @@ import { LuHeart } from "react-icons/lu";
 import { useCart } from "../contexts/CartContext";
 
 export default function NavIcons() {
-  const { cart } = useCart();
+  const { cartCount } = useCart();
 
   return (
     <Flex
@@ -36,7 +36,7 @@ export default function NavIcons() {
         right='-0.9rem'
         data-cy='cart-items-count-badge'
       >
-        {cart.length}
+        {cartCount}
       </Circle>
     </Flex>
   );

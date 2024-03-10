@@ -43,7 +43,12 @@ export default function HomePageTop() {
           a new home begins here.
         </Text>
 
-        <Button width='fit-content' fontSize='1.5rem' bg='#E4A757'>
+        <Button
+          width='fit-content'
+          fontSize='1.5rem'
+          bg='#E4A757'
+          _hover={{ bg: "#efdbc2" }}
+        >
           Explore our collection
         </Button>
       </Flex>

@@ -1,4 +1,5 @@
 import { CartItem as CartItemType } from "@/data";
+import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import {
   Box,
   Card,
@@ -12,12 +13,15 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { MdClose } from "react-icons/md";
+import { useCart } from "../contexts/CartContext";
 
 interface CartItemProps {
   item: CartItemType;
 }
 
 export default function CartItem({ item }: CartItemProps) {
+  const { removeFromCart, addToCart } = useCart();
+
   return (
     <Card
       data-cy='cart-item'
@@ -50,23 +54,21 @@ export default function CartItem({ item }: CartItemProps) {
           cursor: "pointer",
           transform: "scale(1.2)",
         }}
-        onClick={() => {
-          console.log("I was clicked");
-        }}
+        onClick={() => removeFromCart(item)}
       >
         <MdClose />
       </Square>
 
       <Stack>
         <CardBody flexDir='column' gap='3'>
-          <Heading size='md'>Dining table</Heading>
-          <Text py='2'>Sek {item.price}</Text>
+          <Heading size='md'>{item.title}</Heading>
+          <Text py='2'> {item.price} kr</Text>
         </CardBody>
 
         <CardFooter fontSize='1.3rem' data-cy='total-price'>
           <Flex
             justify='space-between'
-            gap={{ base: "2rem", md: "5rem" }}
+            gap={{ base: "2rem", md: "10rem" }}
             data-cy='quantity-controls'
           >
             <Text color='blue'>Total: 200 kr</Text>
@@ -75,25 +77,22 @@ export default function CartItem({ item }: CartItemProps) {
               <Square
                 bg='#D9D9D9'
                 size='30px'
-                onClick={() => {
-                  console.log("I was clicked");
-                }}
+                onClick={() => removeFromCart(item)}
                 data-cy='decrease-quantity-button'
               >
-                <Text> -</Text>
+                <MinusIcon />
               </Square>
               <Square bg='#f4f2f2' size='30px' data-cy='product-quantity'>
-                <Text>0</Text>
+                <Text>{item.quantity}</Text>
               </Square>
               <Square
                 bg='#D9D9D9'
                 size='30px'
-                onClick={() => {
-                  console.log("I was clicked");
-                }}
+                onClick={() => addToCart(item)}
+                _hover={{ cursor: "pointer", transform: "scale(1.1)" }}
                 data-cy='increase-quantity-button'
               >
-                <Text>+</Text>
+                <AddIcon />
               </Square>
             </Flex>
           </Flex>
