@@ -8,6 +8,7 @@ export default function HomePageTop() {
       // mt={{ base: "0", md: "6rem" }}
       flexDir={{ base: "column", md: "row" }}
       mb='2rem'
+      // mt={{ base: "3rem", md: "7rem" }}
     >
       <Flex
         flexDir='column'

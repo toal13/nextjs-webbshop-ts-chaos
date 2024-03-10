@@ -7,10 +7,10 @@ import {
   GridItem,
   Icon,
   Image,
-  Link,
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { LuHeart } from "react-icons/lu";
 import HomePageTop from "./components/HomePageTop";
@@ -30,7 +30,7 @@ export default function Home() {
       >
         {products.map((product) => (
           <GridItem key={product.id}>
-            <Flex flexDirection='column' height='100%'>
+            <Flex flexDirection='column' height='100%' data-cy='product'>
               <Image
                 src={product.image}
                 alt={product.title}
@@ -44,24 +44,18 @@ export default function Home() {
                   flexDirection='column'
                   height='100%'
                 >
-                  <Text>{product.title}</Text>
-                  <Text>{product.price}kr</Text>
+                  <Text data-cy='product-title'>{product.title}</Text>
+                  <Text data-cy='product-price'>{product.price}kr</Text>
                 </Flex>
               </Box>
-              <Flex justifyContent='flex-end'>
-                <Link
-                  href='/'
-                  color='black'
-                  _hover={{ color: "blue.500" }}
-                  textDecor='none'
-                  mr={2}
-                >
+              <Flex justifyContent='flex-end' gap='3'>
+                <Link href='/' color='black'>
                   <LuHeart />
                 </Link>
                 <Icon
                   fontSize='1.2rem'
                   _hover={{ cursor: "pointer", color: "brown" }}
-                  onClick={addToCart}
+                  onClick={() => addToCart(product)}
                 >
                   <HiOutlineShoppingBag />
                 </Icon>

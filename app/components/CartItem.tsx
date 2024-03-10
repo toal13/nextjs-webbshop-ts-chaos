@@ -1,3 +1,4 @@
+import { CartItem as CartItemType } from "@/data";
 import {
   Box,
   Card,
@@ -12,7 +13,11 @@ import {
 } from "@chakra-ui/react";
 import { MdClose } from "react-icons/md";
 
-export default function CartItem() {
+interface CartItemProps {
+  item: CartItemType;
+}
+
+export default function CartItem({ item }: CartItemProps) {
   return (
     <Card
       data-cy='cart-item'
@@ -30,8 +35,8 @@ export default function CartItem() {
           objectFit='cover'
           width='100%'
           height='100%'
-          src='https://images.pexels.com/photos/3144581/pexels-photo-3144581.jpeg?auto=compress&cs=tinysrgb&w=800'
-          alt='dining table'
+          src={item.image}
+          alt={item.title}
         />
       </Box>
       <Square
@@ -40,7 +45,11 @@ export default function CartItem() {
         right='1rem'
         size='30px'
         fontSize='1.5rem'
-        _hover={{ color: "brown", cursor: "pointer", transform: "scale(1.2)" }}
+        _hover={{
+          color: "brown",
+          cursor: "pointer",
+          transform: "scale(1.2)",
+        }}
         onClick={() => {
           console.log("I was clicked");
         }}
@@ -51,43 +60,42 @@ export default function CartItem() {
       <Stack>
         <CardBody flexDir='column' gap='3'>
           <Heading size='md'>Dining table</Heading>
-          <Text py='2'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit,
-            deleniti.
-          </Text>
+          <Text py='2'>Sek {item.price}</Text>
         </CardBody>
 
-        <CardFooter
-          flex='10'
-          fontSize='1.3rem'
-          justify='space-between'
-          data-cy='total-price'
-        >
-          <Text color='blue'>Sek 200</Text>
-          <Flex>
-            <Square
-              bg='#D9D9D9'
-              size='30px'
-              onClick={() => {
-                console.log("I was clicked");
-              }}
-              data-cy='decrease-quantity-button'
-            >
-              <Text> -</Text>
-            </Square>
-            <Square bg='#f4f2f2' size='30px' data-cy='product-quantity'>
-              <Text> 0</Text>
-            </Square>
-            <Square
-              bg='#D9D9D9'
-              size='30px'
-              onClick={() => {
-                console.log("I was clicked");
-              }}
-              data-cy='increase-quantity-button'
-            >
-              <Text>+</Text>
-            </Square>
+        <CardFooter fontSize='1.3rem' data-cy='total-price'>
+          <Flex
+            justify='space-between'
+            gap={{ base: "2rem", md: "5rem" }}
+            data-cy='quantity-controls'
+          >
+            <Text color='blue'>Total: 200 kr</Text>
+
+            <Flex>
+              <Square
+                bg='#D9D9D9'
+                size='30px'
+                onClick={() => {
+                  console.log("I was clicked");
+                }}
+                data-cy='decrease-quantity-button'
+              >
+                <Text> -</Text>
+              </Square>
+              <Square bg='#f4f2f2' size='30px' data-cy='product-quantity'>
+                <Text>0</Text>
+              </Square>
+              <Square
+                bg='#D9D9D9'
+                size='30px'
+                onClick={() => {
+                  console.log("I was clicked");
+                }}
+                data-cy='increase-quantity-button'
+              >
+                <Text>+</Text>
+              </Square>
+            </Flex>
           </Flex>
         </CardFooter>
       </Stack>

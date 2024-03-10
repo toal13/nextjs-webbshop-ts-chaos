@@ -18,12 +18,25 @@ function CartProvider(props: PropsWithChildren) {
   // Logiken för att ändra kundvagnen ligger nära tillståndet
 
   const addToCart = (product: Product) => {
+    console.log("initial cart", cart);
     // 1. Om produkten redan finns i kundvagnen, öka antalet
-    const isProductPresent = cart.find(
-      (existingProduct) => existingProduct.id === product.id
+    // const isProductPresent = cart.find(
+    //   (existingProduct) => existingProduct.id === product.id
+    // );
+    const isProductPresent = cart.some(
+      (cartItem) => cartItem.id === product.id
     );
+    console.log("isProductPresent", isProductPresent);
+
     if (isProductPresent) {
-      setCart([...cart, { ...product, quantity: cart.length + 1 }]);
+      const newCart = cart.map((cartItem) => {
+        if (cartItem.id === product.id) {
+          return { ...cartItem, quantity: cartItem.quantity + 1 };
+        } else {
+          return cartItem;
+        }
+      });
+      setCart(newCart);
     } else {
       // 2. Annars, lägg till produkten i kundvagnen med antal 1
       setCart([...cart, { ...product, quantity: 1 }]);
