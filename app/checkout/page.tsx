@@ -1,5 +1,12 @@
 "use client";
-import { Card, Flex, Text } from "@chakra-ui/react";
+import {
+  AbsoluteCenter,
+  Box,
+  Card,
+  Divider,
+  Flex,
+  Text,
+} from "@chakra-ui/react";
 import CartItem from "../components/CartItem";
 import CheckoutForm from "../components/CheckoutForm";
 import { useCart } from "../contexts/CartContext";
@@ -42,6 +49,14 @@ export default function CheckoutPage() {
           <Text fontSize='1.5rem'>Total: 0kr</Text>
         </Card>
       </Flex>
+      <Box position='relative' padding='10' mt='2rem'>
+        <Divider />
+        <AbsoluteCenter bg='white' px='4'>
+          <Text fontSize={{ base: "1.4rem", md: "2rem" }}>
+            Customer Information
+          </Text>
+        </AbsoluteCenter>
+      </Box>
       <CheckoutForm />
     </>
   );

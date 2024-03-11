@@ -9,7 +9,6 @@ import {
   FormHelperText,
   FormLabel,
   GridItem,
-  Heading,
   Input,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
@@ -19,10 +18,6 @@ import { useToast } from "@chakra-ui/react";
 const Form = () => {
   return (
     <>
-      <Heading w='100%' textAlign={"center"} fontWeight='normal' mb='10%'>
-        Contact Information
-      </Heading>
-
       <FormControl mt='2%'>
         <FormLabel htmlFor='email' fontWeight={"normal"}>
           Email address
@@ -188,7 +183,8 @@ export default function CheckoutForm() {
               <Button
                 type='submit'
                 w='7rem'
-                colorScheme='red'
+                bg='#E4A757'
+                _hover={{ bg: "#efdbc2" }}
                 variant='solid'
                 onClick={() => {
                   toast({
