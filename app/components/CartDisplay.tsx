@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import CartItem from "./CartItem";
 
 export default function CartDisplay() {
   const [size, setSize] = React.useState("");
@@ -53,12 +52,12 @@ export default function CartDisplay() {
             <Text fontSize='3xl'>Your Cart</Text>
           </DrawerHeader>
           <DrawerBody>
+            {/* <CartItem />
             <CartItem />
             <CartItem />
             <CartItem />
             <CartItem />
-            <CartItem />
-            <CartItem />
+            <CartItem /> */}
           </DrawerBody>
 
           <Link

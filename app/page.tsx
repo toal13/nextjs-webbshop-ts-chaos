@@ -30,7 +30,7 @@ export default function Home() {
         gap={3}
       >
         {products.map((product) => (
-          <GridItem key={product.id}>
+          <GridItem key={product.id} data-cy='product-id'>
             <Flex flexDirection='column' height='100%' data-cy='product'>
               <Image
                 src={product.image}

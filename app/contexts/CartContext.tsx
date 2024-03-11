@@ -41,13 +41,13 @@ function CartProvider(props: PropsWithChildren) {
 
     // 1. Om produkten redan finns i kundvagnen, öka antalet
     const isProductPresent = cart.find(
-      (cartItem) => cartItem.id === product.id
+      (cartItem) => cartItem.title === product.title
     );
     console.log("isProductPresent", isProductPresent);
 
     if (isProductPresent) {
       const newCart = cart.map((cartItem) => {
-        if (cartItem.id === product.id) {
+        if (cartItem.title === product.title) {
           return { ...cartItem, quantity: cartItem.quantity + 1 };
         } else {
           return cartItem;
@@ -66,6 +66,22 @@ function CartProvider(props: PropsWithChildren) {
       });
     }
   };
+
+  // const addToCart = (product: Product) => {
+  //   setCart((cart) => {
+  //     const itemExists = cart.find((cartItem) => cartItem.id === product.id);
+  //     if (itemExists) {
+  //       return cart.map((cartItem) =>
+  //         cartItem.title === cartItem.title
+  //           ? { ...cartItem, quantity: cartItem.quantity + 1 }
+  //           : cartItem
+  //       );
+  //     }
+
+  //     return [...cart, { ...product, quantity: 1 }];
+
+  //   });
+  // };
 
   const removeFromCart = (product: Product) => {
     console.log("I was removed");
