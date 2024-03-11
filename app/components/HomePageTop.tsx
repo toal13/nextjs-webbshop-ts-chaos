@@ -8,6 +8,7 @@ export default function HomePageTop() {
       // mt={{ base: "0", md: "6rem" }}
       flexDir={{ base: "column", md: "row" }}
       mb='2rem'
+      // mt={{ base: "3rem", md: "7rem" }}
     >
       <Flex
         flexDir='column'
@@ -42,7 +43,12 @@ export default function HomePageTop() {
           a new home begins here.
         </Text>
 
-        <Button width='fit-content' fontSize='1.5rem' bg='#E4A757'>
+        <Button
+          width='fit-content'
+          fontSize='1.5rem'
+          bg='#E4A757'
+          _hover={{ bg: "#efdbc2" }}
+        >
           Explore our collection
         </Button>
       </Flex>

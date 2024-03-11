@@ -1,11 +1,14 @@
+"use client";
+
 import { Circle, Flex, Link } from "@chakra-ui/react";
+import NextLink from "next/link";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { IoPersonOutline } from "react-icons/io5";
 import { LuHeart } from "react-icons/lu";
 import { useCart } from "../contexts/CartContext";
 
 export default function NavIcons() {
-  const { cart } = useCart();
+  const { cartCount } = useCart();
 
   return (
     <Flex
@@ -19,15 +22,10 @@ export default function NavIcons() {
       <Link href='/' color='black' _hover={{ color: "brown" }} textDecor='none'>
         <LuHeart />
       </Link>
-      <Link
-        href='/checkout'
-        color='black'
-        _hover={{ color: "brown" }}
-        textDecor='none'
-        data-cy='cart-link'
-      >
+
+      <NextLink href='/checkout' passHref color='black' data-cy='cart-link'>
         <HiOutlineShoppingBag />
-      </Link>
+      </NextLink>
       <Circle
         size='25px'
         bg='tomato'
@@ -38,7 +36,7 @@ export default function NavIcons() {
         right='-0.9rem'
         data-cy='cart-items-count-badge'
       >
-        {cart.length}
+        {cartCount}
       </Circle>
     </Flex>
   );

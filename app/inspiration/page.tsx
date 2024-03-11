@@ -3,11 +3,7 @@
 import { Box } from "@chakra-ui/react";
 
 function Inspiration() {
-  return (
-    <Box>
-      <h1>Welcome to the inspiration page</h1>
-    </Box>
-  );
+  return <h1>Welcome to the inspiration page</h1>;
 }
 
 export default Inspiration;

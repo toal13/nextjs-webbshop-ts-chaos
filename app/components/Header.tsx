@@ -20,8 +20,16 @@ export default function Header() {
   const handleToggle = () => setIsOpened(!isOpened);
 
   return (
-    <header>
-      <Flex flexDir='column' bg='white' zIndex='2' width='100% '>
+    <Box
+      as='header'
+      position='sticky'
+      top='0'
+      left='0'
+      right='0'
+      zIndex='5'
+      width='full'
+    >
+      <Flex flexDir='column' bg='white' zIndex='2' width='100%'>
         <Flex
           justify='space-between'
           alignItems='center'
@@ -58,6 +66,6 @@ export default function Header() {
         )}
         <Box w='100%' h='1.5rem' bg='#E4A757'></Box>
       </Flex>
-    </header>
+    </Box>
   );
 }
