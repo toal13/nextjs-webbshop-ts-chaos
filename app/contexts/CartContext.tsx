@@ -61,7 +61,7 @@ function CartProvider(props: PropsWithChildren) {
         title: "Added to cart",
         description: "Your product has been added to your cart.",
         status: "success",
-        duration: 9000,
+        duration: 3000,
         isClosable: true,
       });
     }

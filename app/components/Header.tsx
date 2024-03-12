@@ -12,6 +12,7 @@ import { useState } from "react";
 import NavIcons from "./NavIcons";
 import NavLinks from "./NavLinks";
 import SearchNav from "./SearchNav";
+import SlidingTextBanner from "./SlidingTextBanner";
 
 export default function Header() {
   const [isOpened, setIsOpened] = useState(false);
@@ -64,7 +65,9 @@ export default function Header() {
             <NavLinks />
           </Collapse>
         )}
-        <Box w='100%' h='1.5rem' bg='#E4A757'></Box>
+        <Box w='100%' h='1.5rem' bg='#E4A757'>
+          <SlidingTextBanner />
+        </Box>
       </Flex>
     </Box>
   );
