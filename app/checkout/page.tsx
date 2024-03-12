@@ -7,6 +7,7 @@ import {
   Flex,
   Text,
 } from "@chakra-ui/react";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 import CartItem from "../components/CartItem";
 import CheckoutForm from "../components/CheckoutForm";
 import { useCart } from "../contexts/CartContext";
@@ -24,11 +25,14 @@ export default function CheckoutPage() {
         alignItems='center'
         m='16px auto'
         // mt={{ base: "6rem", md: "10rem" }}
-        gap='1rem '
+        gap='1rem'
+        mt='2rem'
       >
-        <Text fontSize={{ base: "1.5rem", md: "2.4rem" }}>Checkout</Text>
+        <HiOutlineShoppingBag fontSize='3rem' fontWeight='bold' />
+
+        <Text fontSize={{ base: "1.5rem", md: "2.4rem" }}></Text>
         {cart.length === 0 ? (
-          <p>Your cart is empty</p>
+          <p>Your shopping bag is empty</p>
         ) : (
           <>
             {cart.map((item) => (

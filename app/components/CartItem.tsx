@@ -62,7 +62,10 @@ export default function CartItem({ item }: CartItemProps) {
       <Stack>
         <CardBody flexDir='column' gap='3'>
           <Heading size='md'>{item.title}</Heading>
-          <Text py='2'> {item.price} kr</Text>
+          <Text py='2' data-cy='product-price'>
+            {" "}
+            {item.price} kr
+          </Text>
         </CardBody>
 
         <CardFooter fontSize='1.3rem' data-cy='total-price'>
