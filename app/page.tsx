@@ -21,56 +21,58 @@ export default function Home() {
   const { addToCart } = useCart();
 
   return (
-    <Flex flexDir='column'>
+    <Flex flexDir="column">
       <HomePageTop />
       <SimpleGrid
-        width='90%'
-        m='auto'
+        width="90%"
+        m="auto"
         columns={{ base: 1, md: 3, lg: 4 }}
         gap={3}
       >
         {products.map((product) => (
-          <GridItem key={product.id} data-cy='product-id'>
-            <Flex flexDirection='column' height='100%' data-cy='product'>
-              <Image
-                src={product.image}
-                alt={product.title}
-                objectFit='cover'
-                width='100%'
-                maxHeight='200px'
-              />
-              <Box mt={2} flex='1'>
-                <Flex
-                  justifyContent='flex-start'
-                  flexDirection='column'
-                  height='100%'
-                >
-                  <Text data-cy='product-title'>{product.title}</Text>
-                  <Text data-cy='product-price'>{product.price}kr</Text>
+          <Link href={`/products/${product.id}`} key={product.id}>
+            <GridItem data-cy="product-id">
+              <Flex flexDirection="column" height="100%" data-cy="product">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  objectFit="cover"
+                  width="100%"
+                  maxHeight="200px"
+                />
+                <Box mt={2} flex="1">
+                  <Flex
+                    justifyContent="flex-start"
+                    flexDirection="column"
+                    height="100%"
+                  >
+                    <Text data-cy="product-title">{product.title}</Text>
+                    <Text data-cy="product-price">{product.price}kr</Text>
+                  </Flex>
+                </Box>
+                <Flex justifyContent="flex-end" gap="3">
+                  <Link href="/" color="black">
+                    <LuHeart />
+                  </Link>
+                  <Icon
+                    fontSize="1.2rem"
+                    _hover={{ cursor: "pointer", color: "brown" }}
+                    onClick={() => addToCart(product)}
+                    data-cy="product-added-to-cart-toast"
+                  >
+                    <HiOutlineShoppingBag />
+                  </Icon>
                 </Flex>
-              </Box>
-              <Flex justifyContent='flex-end' gap='3'>
-                <Link href='/' color='black'>
-                  <LuHeart />
-                </Link>
-                <Icon
-                  fontSize='1.2rem'
-                  _hover={{ cursor: "pointer", color: "brown" }}
+                <Button
+                  bg="#f4f2f2"
+                  data-cy="product-buy-button"
                   onClick={() => addToCart(product)}
-                  data-cy='product-added-to-cart-toast'
                 >
-                  <HiOutlineShoppingBag />
-                </Icon>
+                  Buy
+                </Button>
               </Flex>
-              <Button
-                bg='#f4f2f2'
-                data-cy='product-buy-button'
-                onClick={() => addToCart(product)}
-              >
-                Buy
-              </Button>
-            </Flex>
-          </GridItem>
+            </GridItem>
+          </Link>
         ))}
       </SimpleGrid>
     </Flex>
