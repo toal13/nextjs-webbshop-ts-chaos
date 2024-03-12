@@ -6,7 +6,14 @@ import { useCart } from "../contexts/CartContext";
 export default function CheckoutPage() {
   const { cart } = useCart();
   console.log(cart);
-
+  
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    cart.forEach((item) => {
+      totalPrice += item.price *item.quantity;
+    });
+    return totalPrice;
+  }
   return (
     <Flex
       width={{ base: "95%", md: "70%" }}
@@ -37,7 +44,7 @@ export default function CheckoutPage() {
         alignItems='end'
         p='1.5rem'
       >
-        <Text fontSize='1.5rem'>Total: 0kr</Text>
+        <Text fontSize='1.5rem'>Total: {calculateTotalPrice()}kr</Text>
       </Card>
     </Flex>
   );
