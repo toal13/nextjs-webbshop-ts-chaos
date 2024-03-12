@@ -15,14 +15,14 @@ import { useCart } from "../contexts/CartContext";
 export default function CheckoutPage() {
   const { cart } = useCart();
   console.log(cart);
-  
+
   const calculateTotalPrice = () => {
     let totalPrice = 0;
     cart.forEach((item) => {
-      totalPrice += item.price *item.quantity;
+      totalPrice += item.price * item.quantity;
     });
     return totalPrice;
-  }
+  };
   return (
     <>
       <Flex
@@ -57,7 +57,9 @@ export default function CheckoutPage() {
           alignItems='end'
           p='1.5rem'
         >
-          <Text fontSize='1.5rem'>Total: {calculateTotalPrice()}kr</Text>
+          <Text fontSize='1.5rem' data-cy='total-price'>
+            Total: {calculateTotalPrice()}kr
+          </Text>
         </Card>
       </Flex>
       <Box position='relative' padding='10' mt='2rem'>

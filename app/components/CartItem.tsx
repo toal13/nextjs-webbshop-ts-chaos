@@ -20,11 +20,11 @@ interface CartItemProps {
 }
 
 export default function CartItem({ item }: CartItemProps) {
-  const { removeFromCart, addToCart } = useCart();
+  const { removeFromCart, removeSameIdItems, addToCart } = useCart();
 
-  const calculatePrice = () =>{
+  const calculatePrice = () => {
     return item.price * item.quantity;
-  }
+  };
 
   return (
     <Card
@@ -58,7 +58,7 @@ export default function CartItem({ item }: CartItemProps) {
           cursor: "pointer",
           transform: "scale(1.2)",
         }}
-        onClick={() => removeFromCart(item)}
+        onClick={() => removeSameIdItems(item)}
       >
         <MdClose />
       </Square>
@@ -72,7 +72,7 @@ export default function CartItem({ item }: CartItemProps) {
           </Text>
         </CardBody>
 
-        <CardFooter fontSize='1.3rem' data-cy='total-price'>
+        <CardFooter fontSize='1.3rem'>
           <Flex
             justify='space-between'
             gap={{ base: "2rem", md: "10rem" }}
@@ -86,6 +86,7 @@ export default function CartItem({ item }: CartItemProps) {
                 size='30px'
                 onClick={() => removeFromCart(item)}
                 data-cy='decrease-quantity-button'
+                _hover={{ cursor: "pointer", transform: "scale(1.1)" }}
               >
                 <MinusIcon />
               </Square>
