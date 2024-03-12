@@ -22,6 +22,10 @@ interface CartItemProps {
 export default function CartItem({ item }: CartItemProps) {
   const { removeFromCart, addToCart } = useCart();
 
+  const calculatePrice = () =>{
+    return item.price * item.quantity;
+  }
+
   return (
     <Card
       data-cy='cart-item'
@@ -74,7 +78,7 @@ export default function CartItem({ item }: CartItemProps) {
             gap={{ base: "2rem", md: "10rem" }}
             data-cy='quantity-controls'
           >
-            <Text color='blue'>Total: 200 kr</Text>
+            <Text color='blue'>Total: {calculatePrice()} kr</Text>
 
             <Flex>
               <Square
