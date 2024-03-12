@@ -84,6 +84,13 @@ function CartProvider(props: PropsWithChildren) {
           }
         });
         setCart(newCart);
+        toast({
+          title: "Item removed from cart",
+          description: "An item has been removed form your cart.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
       } else {
         const newCart = cart.filter((cartItem) => cartItem.id !== product.id);
         setCart(newCart);
