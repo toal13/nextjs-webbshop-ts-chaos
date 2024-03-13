@@ -66,7 +66,7 @@ export default function CartItem({ item }: CartItemProps) {
       <Stack>
         <CardBody flexDir='column' gap='3'>
           <Heading size='md'>{item.title}</Heading>
-          <Text py='2' data-cy='product-price'>
+          <Text py='2' fontSize='1rem' data-cy='product-price'>
             {" "}
             {item.price} kr
           </Text>
@@ -78,7 +78,9 @@ export default function CartItem({ item }: CartItemProps) {
             gap={{ base: "2rem", md: "10rem" }}
             data-cy='quantity-controls'
           >
-            <Text color='blue'>Total: {calculatePrice()} kr</Text>
+            <Text fontSize='1rem' fontWeight='semibold'>
+              Total: {calculatePrice()} kr
+            </Text>
 
             <Flex>
               <Square

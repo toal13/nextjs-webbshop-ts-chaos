@@ -77,6 +77,7 @@ export default function CheckoutForm() {
                     placeholder='Email address'
                     data-cy='customer-email'
                     autoComplete='email'
+                    focusBorderColor='brand.400'
                   />
                   <FormErrorMessage data-cy='customer-email-error'>
                     {form.errors.email}
@@ -97,6 +98,7 @@ export default function CheckoutForm() {
                       placeholder='First name'
                       data-cy='customer-name'
                       autoComplete='name'
+                      focusBorderColor='brand.400'
                     />
                     <FormErrorMessage data-cy='customer-name-error'>
                       {form.errors.firstName}
@@ -114,6 +116,7 @@ export default function CheckoutForm() {
                       {...field}
                       placeholder='Last name'
                       autoComplete='name'
+                      focusBorderColor='brand.400'
                     />
                     <FormErrorMessage>{form.errors.lastName}</FormErrorMessage>
                   </FormControl>
@@ -146,6 +149,7 @@ export default function CheckoutForm() {
                     shadow='sm'
                     size='sm'
                     w='full'
+                    h='2.5rem'
                     rounded='md'
                     data-cy='customer-city'
                   />
@@ -181,6 +185,7 @@ export default function CheckoutForm() {
                     shadow='sm'
                     size='sm'
                     w='full'
+                    h='2.5rem'
                     rounded='md'
                     data-cy='customer-address'
                   />
@@ -216,6 +221,7 @@ export default function CheckoutForm() {
                     shadow='sm'
                     size='sm'
                     w='full'
+                    h='2.5rem'
                     rounded='md'
                     data-cy='customer-phone'
                   />
@@ -251,6 +257,7 @@ export default function CheckoutForm() {
                     shadow='sm'
                     size='sm'
                     w='full'
+                    h='2.5rem'
                     rounded='md'
                     data-cy='customer-zipcode'
                   />
