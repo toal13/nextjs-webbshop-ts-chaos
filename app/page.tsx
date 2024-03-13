@@ -23,8 +23,9 @@ export default function Home() {
       <HomePageTop />
       <SimpleGrid
         id='products-grid'
-        width='90%'
+        width='80%'
         m='2rem auto'
+        mt='5rem'
         columns={{ base: 1, md: 3, lg: 4 }}
         gap={5}
       >
