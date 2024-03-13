@@ -26,18 +26,20 @@ export default function NavIcons() {
       <NextLink href='/checkout' passHref color='black' data-cy='cart-link'>
         <HiOutlineShoppingBag />
       </NextLink>
-      <Circle
-        size='25px'
-        bg='tomato'
-        color='white'
-        fontSize='1rem'
-        position='absolute'
-        top='-0.7rem'
-        right='-0.9rem'
-        data-cy='cart-items-count-badge'
-      >
-        {cartCount}
-      </Circle>
+      {cartCount > 0 && (
+        <Circle
+          size='25px'
+          bg='tomato'
+          color='white'
+          fontSize='1rem'
+          position='absolute'
+          top='-0.7rem'
+          right='-0.9rem'
+          data-cy='cart-items-count-badge'
+        >
+          {cartCount}
+        </Circle>
+      )}
     </Flex>
   );
 }
