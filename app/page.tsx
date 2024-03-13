@@ -30,9 +30,9 @@ export default function Home() {
         gap={3}
       >
         {products.map((product) => (
-          <Link href={`/products/${product.id}`} key={product.id}>
-            <GridItem data-cy="product-id">
-              <Flex flexDirection="column" height="100%" data-cy="product">
+          <GridItem data-cy="product-id" key={product.id}>
+            <Flex flexDirection="column" height="100%" data-cy="product">
+              <Link href={`/products/${product.id}`}>
                 <Image
                   src={product.image}
                   alt={product.title}
@@ -50,29 +50,29 @@ export default function Home() {
                     <Text data-cy="product-price">{product.price}kr</Text>
                   </Flex>
                 </Box>
-                <Flex justifyContent="flex-end" gap="3">
-                  <Link href="/" color="black">
-                    <LuHeart />
-                  </Link>
-                  <Icon
-                    fontSize="1.2rem"
-                    _hover={{ cursor: "pointer", color: "brown" }}
-                    onClick={() => addToCart(product)}
-                    data-cy="product-added-to-cart-toast"
-                  >
-                    <HiOutlineShoppingBag />
-                  </Icon>
-                </Flex>
-                <Button
-                  bg="#f4f2f2"
-                  data-cy="product-buy-button"
+              </Link>
+              <Flex justifyContent="flex-end" gap="3">
+                <Link href="/" color="black">
+                  <LuHeart />
+                </Link>
+                <Icon
+                  fontSize="1.2rem"
+                  _hover={{ cursor: "pointer", color: "brown" }}
                   onClick={() => addToCart(product)}
+                  data-cy="product-added-to-cart-toast"
                 >
-                  Buy
-                </Button>
+                  <HiOutlineShoppingBag />
+                </Icon>
               </Flex>
-            </GridItem>
-          </Link>
+              <Button
+                bg="#f4f2f2"
+                data-cy="product-buy-button"
+                onClick={() => addToCart(product)}
+              >
+                Buy
+              </Button>
+            </Flex>
+          </GridItem>
         ))}
       </SimpleGrid>
     </Flex>
