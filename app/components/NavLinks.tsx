@@ -22,14 +22,7 @@ export default function NavLinks() {
       >
         Home
       </Link>
-      <Link
-        href='/about'
-        _hover={{ color: "brown" }}
-        textDecor='none'
-        paddingLeft='1rem'
-      >
-        About Us
-      </Link>
+
       <Link
         href='/products'
         _hover={{ color: "brown" }}
@@ -45,6 +38,14 @@ export default function NavLinks() {
         paddingLeft='1rem'
       >
         Inspiration
+      </Link>
+      <Link
+        href='/about'
+        _hover={{ color: "brown" }}
+        textDecor='none'
+        paddingLeft='1rem'
+      >
+        About Us
       </Link>
     </Flex>
   );
