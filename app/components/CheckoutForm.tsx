@@ -12,6 +12,7 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
+import { useRouter } from "next/navigation";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object({
@@ -19,7 +20,7 @@ const validationSchema = Yup.object({
     .email("Invalid email address")
     .required("Please enter your email"),
   firstName: Yup.string().required("Please enter your first name"),
-  lastName: Yup.string().required("Please enter your last name"),
+  //   lastName: Yup.string().required("Please enter your last name"),
   address: Yup.string().required("Please enter your address"),
   city: Yup.string().required("Please enter your city"),
   phone: Yup.string()
@@ -34,6 +35,12 @@ const validationSchema = Yup.object({
     .required("Please enter your postal code"),
 });
 export default function CheckoutForm() {
+  const router = useRouter();
+
+  const handleSubmit = (values: any) => {
+    console.log(values);
+    router.push("/confirmationPage");
+  };
   return (
     <Container
       borderWidth='1px'
@@ -54,9 +61,7 @@ export default function CheckoutForm() {
           postalCode: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
+        onSubmit={handleSubmit}
       >
         {(props) => (
           <Form data-cy='customer-form'>
@@ -102,7 +107,7 @@ export default function CheckoutForm() {
               <Field name='lastName'>
                 {({ field, form }: any) => (
                   <FormControl
-                    isInvalid={form.errors.lastName && form.touched.lastName}
+                  // isInvalid={form.errors.lastName && form.touched.lastName}
                   >
                     <FormLabel>Last Name</FormLabel>
                     <Input
