@@ -1,22 +1,21 @@
 "use client";
 
+import { useCart } from "@/app/contexts/CartContext";
+import { products } from "@/data";
 import {
   Box,
-  Container,
-  Stack,
-  Text,
-  Image,
-  Flex,
-  VStack,
   Button,
+  Container,
+  Flex,
   Heading,
+  Image,
   SimpleGrid,
+  Stack,
   StackDivider,
-  useColorModeValue,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
 import { MdLocalShipping } from "react-icons/md";
-import { products } from "@/data";
-import { useCart } from "@/app/contexts/CartContext";
 
 type PageProps = { params: { id: number } };
 

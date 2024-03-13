@@ -3,8 +3,6 @@
 import { products } from "@/data";
 import { Link } from "@chakra-ui/next-js";
 import {
-  Box,
-  Button,
   Flex,
   GridItem,
   Icon,
@@ -24,53 +22,79 @@ export default function Home() {
     <Flex flexDir='column'>
       <HomePageTop />
       <SimpleGrid
+        id='products-grid'
         width='90%'
-        m='auto'
+        m='2rem auto'
         columns={{ base: 1, md: 3, lg: 4 }}
-        gap={3}
+        gap={5}
       >
         {products.map((product) => (
-          <GridItem data-cy='product-id' key={product.id}>
+          <GridItem
+            data-cy='product-id'
+            key={product.id}
+            boxShadow='1px 1px 2px rgba(0,0,0,0.1)'
+            transition={"transform 0.2s ease-in-out"}
+            _hover={{ cursor: "pointer", transform: "scale(1.05)" }}
+          >
             <Flex flexDirection='column' height='100%' data-cy='product'>
-              <Link href={`/product/${product.id}`}>
+              <Link
+                href={`/product/${product.id}`}
+                _hover={{ textDecoration: "none" }}
+              >
                 <Image
                   src={product.image}
                   alt={product.title}
                   objectFit='cover'
                   width='100%'
-                  maxHeight='200px'
+                  height='200px'
                 />
-                <Box mt={2} flex='1'>
-                  <Flex
-                    justifyContent='flex-start'
-                    flexDirection='column'
-                    height='100%'
+
+                <Flex
+                  justifyContent='flex-start'
+                  alignContent='center'
+                  flexDirection='column'
+                  mt='1.5rem'
+                >
+                  <Text
+                    data-cy='product-title'
+                    fontWeight='semibold'
+                    textTransform='capitalize'
+                    _hover={{ color: "brown" }}
                   >
-                    <Text data-cy='product-title'>{product.title}</Text>
-                    <Text data-cy='product-price'>{product.price}kr</Text>
-                  </Flex>
-                </Box>
+                    {product.title}
+                  </Text>
+                  <Text data-cy='product-price' _hover={{ color: "brown" }}>
+                    {product.price} kr
+                  </Text>
+                </Flex>
               </Link>
-              <Flex justifyContent='flex-end' gap='3'>
-                <Link href='/' color='black'>
-                  <LuHeart />
+              <Flex gap='6' m='0.5rem' justifyContent='end' mb='1rem'>
+                <Link
+                  href='/'
+                  color='black'
+                  transition={"transform 0.2s ease-in-out"}
+                  _hover={{
+                    cursor: "pointer",
+                    color: "brown",
+                    transform: "scale(1.2)",
+                  }}
+                >
+                  <LuHeart fontSize='1.7rem' />
                 </Link>
                 <Icon
-                  fontSize='1.2rem'
-                  _hover={{ cursor: "pointer", color: "brown" }}
+                  fontSize='1.7rem'
+                  transition={"transform 0.2s ease-in-out"}
+                  _hover={{
+                    cursor: "pointer",
+                    color: "brown",
+                    transform: "scale(1.2)",
+                  }}
                   onClick={() => addToCart(product)}
-                  data-cy='product-added-to-cart-toast'
+                  data-cy='product-buy-button'
                 >
                   <HiOutlineShoppingBag />
                 </Icon>
               </Flex>
-              <Button
-                bg='#f4f2f2'
-                data-cy='product-buy-button'
-                onClick={() => addToCart(product)}
-              >
-                Buy
-              </Button>
             </Flex>
           </GridItem>
         ))}
