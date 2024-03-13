@@ -16,10 +16,12 @@ import {
 } from "@chakra-ui/react";
 import { MdLocalShipping } from "react-icons/md";
 import { products } from "@/data";
+import { useCart } from "@/app/contexts/CartContext";
 
 type PageProps = { params: { id: number } };
 
 export default function ProductDetail({ params }: PageProps) {
+  const { addToCart } = useCart();
   const product = products.find((p) => p.id == params.id);
   if (!product) {
     return (
@@ -56,11 +58,7 @@ export default function ProductDetail({ params }: PageProps) {
             >
               {product.title}
             </Heading>
-            <Text
-              color={useColorModeValue("gray.900", "gray.400")}
-              fontWeight={300}
-              fontSize={"2xl"}
-            >
+            <Text color="gray.900" fontWeight={300} fontSize={"2xl"}>
               {product.price}
             </Text>
           </Box>
@@ -68,11 +66,7 @@ export default function ProductDetail({ params }: PageProps) {
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={"column"}
-            divider={
-              <StackDivider
-                borderColor={useColorModeValue("gray.200", "gray.600")}
-              />
-            }
+            divider={<StackDivider borderColor="gray.600" />}
           >
             <VStack spacing={{ base: 4, sm: 6 }}>
               <Text fontSize={"lg"}>{product.description}</Text>
@@ -80,13 +74,15 @@ export default function ProductDetail({ params }: PageProps) {
           </Stack>
 
           <Button
+            data-cy="product-buy-button"
+            onClick={() => addToCart(product)}
             rounded={"none"}
             w={"full"}
             mt={8}
             size={"lg"}
             py={"7"}
-            bg={useColorModeValue("gray.900", "gray.50")}
-            color={useColorModeValue("white", "gray.900")}
+            bg="rgba(78, 199, 145, 1)"
+            color="white"
             textTransform={"uppercase"}
             _hover={{
               transform: "translateY(2px)",
