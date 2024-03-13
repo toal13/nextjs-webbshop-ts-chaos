@@ -32,7 +32,7 @@ export default function Home() {
         {products.map((product) => (
           <GridItem data-cy='product-id' key={product.id}>
             <Flex flexDirection='column' height='100%' data-cy='product'>
-              <Link href={`/products/${product.id}`}>
+              <Link href={`/product/${product.id}`}>
                 <Image
                   src={product.image}
                   alt={product.title}
