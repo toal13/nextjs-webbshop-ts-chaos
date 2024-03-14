@@ -64,7 +64,7 @@ export const products: Product[] = [
   {
     id: 6,
     image:
-      "https://files.oaiusercontent.com/file-sVjoXNwz08G6MgMNEHQt6YB1?se=2024-03-13T19%3A07%3A58Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D32ec7bed-d841-46b1-90ea-1d86879a33d4.webp&sig=JYcL0%2BErX4BzszYyevCcma9/3IX2Xb%2BjtPetEJh3K3Q%3D",
+      "https://images.pexels.com/photos/6758773/pexels-photo-6758773.jpeg?auto=compress&cs=tinysrgb&w=800",
     title: "dining table",
     description:
       "Irure irure incididunt ullamco dolor consectetur reprehenderit sit magna ex. Anim sint aliqua dolor eu. Labore et non pariatur ex eu. Ut duis eu anim et consectetur amet velit non.",
@@ -73,7 +73,7 @@ export const products: Product[] = [
   {
     id: 7,
     image:
-      "https://files.oaiusercontent.com/file-X1d7QpZ2iq00kuzb4ch5QQMy?se=2024-03-13T19%3A07%3A58Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3De6a92d10-8db5-4dc2-a03f-ca0321e24bdd.webp&sig=ZHdWtlZasAgAMI/PtftV31jwbZoU21mPBg%2BoBz1DYII%3D",
+      "https://images.pexels.com/photos/3144581/pexels-photo-3144581.jpeg?auto=compress&cs=tinysrgb&w=800",
     title: "dining table",
     description:
       "Irure irure incididunt ullamco dolor consectetur reprehenderit sit magna ex. Anim sint aliqua dolor eu. Labore et non pariatur ex eu. Ut duis eu anim et consectetur amet velit non.",
@@ -82,7 +82,7 @@ export const products: Product[] = [
   {
     id: 8,
     image:
-      "https://files.oaiusercontent.com/file-3ii94cEZh3EvvVZakibzB3Vp?se=2024-03-14T07%3A52%3A28Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3De0de1ba9-b1fd-46e1-8bcc-33bb79fe18d1.webp&sig=7KtwOVVgozX5vjx2ANck0pKZvD2Ae0SqaZ4C14SpBQM%3D",
+      "https://images.pexels.com/photos/276651/pexels-photo-276651.jpeg?auto=compress&cs=tinysrgb&w=800",
     title: "dining table",
     description:
       "Irure irure incididunt ullamco dolor consectetur reprehenderit sit magna ex. Anim sint aliqua dolor eu. Labore et non pariatur ex eu. Ut duis eu anim et consectetur amet velit non.",
