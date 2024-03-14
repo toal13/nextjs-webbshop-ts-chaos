@@ -34,6 +34,7 @@ const validationSchema = Yup.object({
     .matches(/^(\d{3} \d{2}|\d{5})$/, "Invalid postal code format")
     .required("Please enter your postal code"),
 });
+
 export default function CheckoutForm() {
   const router = useRouter();
 

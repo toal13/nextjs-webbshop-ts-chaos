@@ -1,3 +1,5 @@
+import yup from "yup";
+
 /**
  * Beskriver en produkt som ska säljas på sidan.
  * OBS: Kan utökas men inte ändras pga cypress.
@@ -9,6 +11,16 @@ export interface Product {
   description: string;
   price: number;
 }
+
+export const ProductSchema = yup
+  .object()
+  .shape<Record<keyof Product, yup.AnySchema>>({
+    id: yup.string().required(),
+    image: yup.string().required(),
+    title: yup.string().required(),
+    description: yup.string().required(),
+    price: yup.string().required(),
+  });
 
 export interface CartItem extends Product {
   quantity: number;
