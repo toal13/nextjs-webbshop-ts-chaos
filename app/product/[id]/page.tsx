@@ -1,28 +1,27 @@
 "use client";
 
+import { useCart } from "@/app/contexts/CartContext";
+import { products } from "@/data";
 import {
   Box,
-  Container,
-  Stack,
-  Text,
-  Image,
-  Flex,
-  VStack,
   Button,
+  Container,
+  Flex,
   Heading,
+  Image,
   SimpleGrid,
+  Stack,
   StackDivider,
-  useColorModeValue,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
 import { MdLocalShipping } from "react-icons/md";
-import { products } from "@/data";
-import { useCart } from "@/app/contexts/CartContext";
 
-type PageProps = { params: { id: number } };
+type PageProps = { params: { id: string } };
 
 export default function ProductDetail({ params }: PageProps) {
   const { addToCart } = useCart();
-  const product = products.find((p) => p.id == params.id);
+  const product = products.find((p) => p.id === params.id);
   if (!product) {
     return (
       <main>
@@ -52,13 +51,19 @@ export default function ProductDetail({ params }: PageProps) {
         <Stack spacing={{ base: 6, md: 10 }}>
           <Box as={"header"}>
             <Heading
+              data-cy='product-title'
               lineHeight={1.1}
               fontWeight={600}
               fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
             >
               {product.title}
             </Heading>
-            <Text color="gray.900" fontWeight={300} fontSize={"2xl"}>
+            <Text
+              data-cy='product-price'
+              color='gray.900'
+              fontWeight={300}
+              fontSize={"2xl"}
+            >
               {product.price}
             </Text>
           </Box>
@@ -66,23 +71,25 @@ export default function ProductDetail({ params }: PageProps) {
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={"column"}
-            divider={<StackDivider borderColor="gray.600" />}
+            divider={<StackDivider borderColor='gray.600' />}
           >
             <VStack spacing={{ base: 4, sm: 6 }}>
-              <Text fontSize={"lg"}>{product.description}</Text>
+              <Text data-cy='product-description' fontSize={"lg"}>
+                {product.description}
+              </Text>
             </VStack>
           </Stack>
 
           <Button
-            data-cy="product-buy-button"
+            data-cy='product-buy-button'
             onClick={() => addToCart(product)}
             rounded={"none"}
             w={"full"}
             mt={8}
             size={"lg"}
             py={"7"}
-            bg="rgba(78, 199, 145, 1)"
-            color="white"
+            bg='rgba(78, 199, 145, 1)'
+            color='white'
             textTransform={"uppercase"}
             _hover={{
               transform: "translateY(2px)",
@@ -92,7 +99,7 @@ export default function ProductDetail({ params }: PageProps) {
             Add to cart
           </Button>
 
-          <Stack direction="row" alignItems="center" justifyContent={"center"}>
+          <Stack direction='row' alignItems='center' justifyContent={"center"}>
             <MdLocalShipping />
             <Text>2-3 business days delivery</Text>
           </Stack>

@@ -23,7 +23,7 @@ export default function CartItem({ item }: CartItemProps) {
   const { removeFromCart, removeSameIdItems, addToCart } = useCart();
 
   const calculatePrice = () => {
-    return item.price * item.quantity;
+    return Number(item.price) * Number(item.quantity);
   };
 
   return (
