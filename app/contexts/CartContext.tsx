@@ -24,25 +24,32 @@ const CartContext = createContext({} as CartContextValue);
 function CartProvider(props: PropsWithChildren) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const toast = useToast();
-  const [cartCount, setCartCount] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false)
 
   // Recalculate cart count when cart changes
   useEffect(() => {
-    const newCount = cart.reduce(
-      (totalItems, item) => totalItems + item.quantity,
-      0
-    );
-    setCartCount(newCount);
-  }, [cart]);
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+    setIsLoaded(true)
+  }, []);
+
+  useEffect(() => {
+    if (!isLoaded) return;
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart, isLoaded]);
+
 
   // Logiken för att ändra kundvagnen ligger nära tillståndet
 
   const addToCart = (product: Product) => {
+    console.log("initial cart", cart);
     // 1. Om produkten redan finns i kundvagnen, öka antalet
     const isProductPresent = cart.find(
       (cartItem) => cartItem.id === product.id
     );
-
+    console.log("isProductPresent", isProductPresent);
     if (isProductPresent) {
       const newCart = cart.map((cartItem) => {
         if (cartItem.id === product.id) {
@@ -52,6 +59,7 @@ function CartProvider(props: PropsWithChildren) {
         }
       });
       setCart(newCart);
+
       toast({
         title: "Quantity updated",
         description: "You have added one more item to your cart.",
@@ -127,6 +135,12 @@ function CartProvider(props: PropsWithChildren) {
       isClosable: true,
     });
   };
+
+  // härleda från tillstånd
+  const cartCount = cart.reduce(
+    (totalItems, item) => totalItems + item.quantity,
+    0
+  );
 
   return (
     <CartContext.Provider
