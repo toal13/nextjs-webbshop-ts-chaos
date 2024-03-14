@@ -80,9 +80,9 @@ export const products: Product[] = [
     price: 15000,
   },
   {
-    id: 7,
+    id: 8,
     image:
-      "https://files.oaiusercontent.com/file-iR3qsOQhTzinBJw1v2LCZDp9?se=2024-03-13T19%3A13%3A59Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D5c38c439-1a23-4938-93ca-495f38a3497e.webp&sig=ZcFcsY90R6jmaCF05hU8Tmfyrd7e1jKCYIkoOoeurf8%3D",
+      "https://files.oaiusercontent.com/file-3ii94cEZh3EvvVZakibzB3Vp?se=2024-03-14T07%3A52%3A28Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3De0de1ba9-b1fd-46e1-8bcc-33bb79fe18d1.webp&sig=7KtwOVVgozX5vjx2ANck0pKZvD2Ae0SqaZ4C14SpBQM%3D",
     title: "dining table",
     description:
       "Irure irure incididunt ullamco dolor consectetur reprehenderit sit magna ex. Anim sint aliqua dolor eu. Labore et non pariatur ex eu. Ut duis eu anim et consectetur amet velit non.",
