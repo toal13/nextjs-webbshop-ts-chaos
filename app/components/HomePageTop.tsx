@@ -5,10 +5,8 @@ export default function HomePageTop() {
     <Flex
       width='100%'
       position='relative'
-      // mt={{ base: "0", md: "6rem" }}
       flexDir={{ base: "column", md: "row" }}
       mb='2rem'
-      // mt={{ base: "3rem", md: "7rem" }}
     >
       <Flex
         flexDir='column'
@@ -42,11 +40,11 @@ export default function HomePageTop() {
           collection and find the perfect pieces for your style. Your journey to
           a new home begins here.
         </Text>
-
         <Button
           width='fit-content'
           fontSize='1.5rem'
           bg='#E4A757'
+          onClick={() => window.scrollTo({ top: 650, behavior: "smooth" })}
           _hover={{ bg: "#efdbc2" }}
         >
           Explore our collection
