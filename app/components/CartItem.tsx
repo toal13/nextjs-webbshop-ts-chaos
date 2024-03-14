@@ -68,7 +68,7 @@ export default function CartItem({ item }: CartItemProps) {
           <Heading size='md' data-cy='product-title'>
             {item.title}
           </Heading>
-          <Text py='2' fontSize='1rem' data-cy='product-price'>
+          <Text py='2' fontSize='1rem'>
             {" "}
             {item.price} kr
           </Text>
@@ -80,7 +80,7 @@ export default function CartItem({ item }: CartItemProps) {
             gap={{ base: "2rem", md: "10rem" }}
             data-cy='quantity-controls'
           >
-            <Text fontSize='1rem' fontWeight='semibold'>
+            <Text fontSize='1rem' fontWeight='semibold' data-cy='product-price'>
               Total: {calculatePrice()} kr
             </Text>
 
