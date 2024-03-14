@@ -7,6 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import CustomToast from "../components/CustomToast";
 
 // Skapa kontexten
 interface CartContextValue {
@@ -24,7 +25,7 @@ const CartContext = createContext({} as CartContextValue);
 function CartProvider(props: PropsWithChildren) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const toast = useToast();
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Recalculate cart count when cart changes
   useEffect(() => {
@@ -32,14 +33,13 @@ function CartProvider(props: PropsWithChildren) {
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     }
-    setIsLoaded(true)
+    setIsLoaded(true);
   }, []);
 
   useEffect(() => {
     if (!isLoaded) return;
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart, isLoaded]);
-
 
   // Logiken för att ändra kundvagnen ligger nära tillståndet
 
@@ -61,8 +61,7 @@ function CartProvider(props: PropsWithChildren) {
       setCart(newCart);
 
       toast({
-        title: "Quantity updated",
-        description: "You have added one more item to your cart.",
+        render: () => <CustomToast />,
         status: "success",
         duration: 3000,
         isClosable: true,
@@ -71,8 +70,8 @@ function CartProvider(props: PropsWithChildren) {
       // 2. Annars, lägg till produkten i kundvagnen med antal 1
       setCart([...cart, { ...product, quantity: 1 }]);
       toast({
-        title: "Added to cart",
-        description: "Your product has been added to your cart.",
+        render: () => <CustomToast />,
+
         status: "success",
         duration: 3000,
         isClosable: true,

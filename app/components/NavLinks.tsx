@@ -24,14 +24,6 @@ export default function NavLinks() {
       </Link>
 
       <Link
-        href='/products'
-        _hover={{ color: "brown" }}
-        textDecor='none'
-        paddingLeft='1rem'
-      >
-        Products
-      </Link>
-      <Link
         href='/inspiration'
         _hover={{ color: "brown" }}
         textDecor='none'
