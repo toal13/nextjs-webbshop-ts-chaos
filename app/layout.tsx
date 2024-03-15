@@ -21,7 +21,9 @@ export default function RootLayout({ children }: LayoutProps) {
       <body className={inter.className}>
         <Providers>
           <Header />
-          <Box as='main'>{children}</Box>
+          <Box minH='100vh' as='main'>
+            {children}{" "}
+          </Box>
           <Footer />
         </Providers>
       </body>

@@ -35,7 +35,7 @@ export default function Header() {
           justify='space-between'
           alignItems='center'
           width='94%'
-          m='auto'
+          m='0.5rem auto'
           p='0.5rem'
         >
           <Flex align='center' gap='2rem' width='30%'>

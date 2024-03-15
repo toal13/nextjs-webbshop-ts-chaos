@@ -65,7 +65,7 @@ export default function CartItem({ item }: CartItemProps) {
 
       <Stack>
         <CardBody flexDir='column' gap='3'>
-          <Heading size='md' data-cy='product-title'>
+          <Heading size='md' data-cy='product-title' textTransform='capitalize'>
             {item.title}
           </Heading>
           <Text py='2' fontSize='1rem'>
