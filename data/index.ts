@@ -11,6 +11,26 @@ export interface Product {
   price: string;
 }
 
+export const ValidationSchema = Yup.object({
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Please enter your email"),
+  firstName: Yup.string().required("Please enter your first name"),
+  //   lastName: Yup.string().required("Please enter your last name"),
+  address: Yup.string().required("Please enter your address"),
+  city: Yup.string().required("Please enter your city"),
+  phone: Yup.string()
+    .matches(
+      /^\+46\d{7,9}$|0\d{1,2}-?\d{2,3} ?\d{2} ?\d{2}$|^07\d{1}-?\d{3} ?\d{2} ?\d{2}$/,
+      "Invalid phone number format"
+    )
+    .required("Please enter your phone number"),
+
+  postalCode: Yup.string()
+    .matches(/^(\d{3} \d{2}|\d{5})$/, "Invalid postal code format")
+    .required("Please enter your postal code"),
+});
+
 export const ProductSchema = Yup.object().shape<
   Record<keyof Product, Yup.AnySchema>
 >({

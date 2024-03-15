@@ -17,8 +17,6 @@ export default function ProductForm(props: Props) {
       initialValues={props.product || {}}
       validationSchema={ProductSchema}
       onSubmit={handleSubmit}
-    >
-      ....
-    </Formik>
+    ></Formik>
   );
 }
