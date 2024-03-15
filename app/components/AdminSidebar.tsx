@@ -1,5 +1,5 @@
 "use client";
-import { Product, products } from "@/data";
+import { Product } from "@/data";
 import {
   Box,
   Drawer,
@@ -57,7 +57,7 @@ export default function AdminSidebar({ product }: AdminSidebarProps) {
           />
           <DrawerHeader>
             <Text fontSize='2xl' m='3rem' p='0.5rem' textTransform='uppercase'>
-              Admin Panel
+              Dashboard
             </Text>
           </DrawerHeader>
           <hr color='black' />
@@ -72,6 +72,12 @@ export default function AdminSidebar({ product }: AdminSidebarProps) {
                 fontSize='1.5rem'
                 textAlign='left'
                 borderRadius='5px'
+                transition={"0.3s ease-in-out"}
+                _hover={{
+                  color: "brown",
+                  cursor: "pointer",
+                  transform: "translateX(5px)",
+                }}
               >
                 Admin - All Products
               </Box>
@@ -85,6 +91,12 @@ export default function AdminSidebar({ product }: AdminSidebarProps) {
                 fontSize='1.5rem'
                 textAlign='left'
                 borderRadius='5px'
+                transition={"0.3s ease-in-out"}
+                _hover={{
+                  color: "brown",
+                  cursor: "pointer",
+                  transform: "translateX(5px)",
+                }}
               >
                 New Product
               </Box>
@@ -97,6 +109,12 @@ export default function AdminSidebar({ product }: AdminSidebarProps) {
                 fontSize='1.5rem'
                 textAlign='left'
                 borderRadius='5px'
+                transition={"0.3s ease-in-out"}
+                _hover={{
+                  color: "brown",
+                  cursor: "pointer",
+                  transform: "translateX(5px)",
+                }}
               >
                 Edit Product
               </Box>

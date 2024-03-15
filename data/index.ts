@@ -34,11 +34,11 @@ export const ValidationSchema = Yup.object({
 export const ProductSchema = Yup.object().shape<
   Record<keyof Product, Yup.AnySchema>
 >({
-  id: Yup.string().required(),
-  image: Yup.string().required(),
-  title: Yup.string().required(),
-  description: Yup.string().required(),
-  price: Yup.string().required(),
+  id: Yup.string().required("Please enter the product id"),
+  image: Yup.string().required("Please enter the product image url"),
+  title: Yup.string().required("Please enter the product title"),
+  description: Yup.string().required("Please enter the product description"),
+  price: Yup.string().required("Please enter the product price"),
 });
 
 export interface CartItem extends Product {

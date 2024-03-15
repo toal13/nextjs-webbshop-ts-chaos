@@ -46,14 +46,12 @@ function About() {
       justifyContent='center'
       alignItems='center'
       fontSize='2rem'
-      mt='5rem'
+      mt='3rem'
       width={{ base: "80%", md: "60%" }}
       mx='auto'
       gap='2rem'
     >
-      <Text fontSize={{ base: "1.3rem", md: "2rem" }}>
-        Our Story & Philosophy
-      </Text>
+      <Text fontSize='1.7rem'>Our Story & Philosophy</Text>
       <Text fontSize={{ base: "1rem", md: "1.3rem" }} textAlign='center'>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, facilis.
         Assumenda cumque eaque corrupti enim molestias unde iure id className.
