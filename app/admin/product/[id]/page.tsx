@@ -1,11 +1,11 @@
-import ProductForm from "@/app/components/ProductForm";
-
+import { Text } from "@chakra-ui/react";
 export default function AdminEditProductPage() {
   // hämta produkten utifrån params
 
   return (
     <div>
-      <ProductForm product={product} />
+      <Text>The edit product page.</Text>
+      {/* <ProductForm product={product} /> */}
     </div>
   );
 }

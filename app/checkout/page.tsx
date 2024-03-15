@@ -17,9 +17,9 @@ export default function CheckoutPage() {
   console.log(cart);
 
   const calculateTotalPrice = () => {
-    let totalPrice = 0;
+    let totalPrice: number = 0; // Specify the type of totalPrice as number
     cart.forEach((item) => {
-      totalPrice += item.price * item.quantity;
+      totalPrice += Number(item.price) * item.quantity;
     });
     return totalPrice;
   };

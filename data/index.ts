@@ -1,9 +1,8 @@
-import yup from "yup";
-
 /**
  * Beskriver en produkt som ska säljas på sidan.
  * OBS: Kan utökas men inte ändras pga cypress.
  **/
+import * as Yup from "yup";
 export interface Product {
   id: string;
   image: string;
@@ -12,15 +11,15 @@ export interface Product {
   price: string;
 }
 
-export const ProductSchema = yup
-  .object()
-  .shape<Record<keyof Product, yup.AnySchema>>({
-    id: yup.string().required(),
-    image: yup.string().required(),
-    title: yup.string().required(),
-    description: yup.string().required(),
-    price: yup.string().required(),
-  });
+export const ProductSchema = Yup.object().shape<
+  Record<keyof Product, Yup.AnySchema>
+>({
+  id: Yup.string().required(),
+  image: Yup.string().required(),
+  title: Yup.string().required(),
+  description: Yup.string().required(),
+  price: Yup.string().required(),
+});
 
 export interface CartItem extends Product {
   quantity: number;
@@ -74,7 +73,7 @@ export const products: Product[] = [
     price: "2500",
   },
   {
-    id:"6",
+    id: "6",
     image:
       "https://images.pexels.com/photos/6758773/pexels-photo-6758773.jpeg?auto=compress&cs=tinysrgb&w=800",
     title: "dining table",

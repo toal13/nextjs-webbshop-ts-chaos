@@ -3,9 +3,9 @@
 import { Circle, Flex, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import { IoPersonOutline } from "react-icons/io5";
 import { LuHeart } from "react-icons/lu";
 import { useCart } from "../contexts/CartContext";
+import AdminSidebar from "./AdminSidebar";
 
 export default function NavIcons() {
   const { cartCount } = useCart();
@@ -15,11 +15,20 @@ export default function NavIcons() {
       position='relative'
       gap={{ base: "1.2rem", md: "2rem" }}
       fontSize={{ base: "1.4rem", md: "1.7rem" }}
+      justify='center'
+      align='center'
     >
-      <Link href='/' color='black' _hover={{ color: "brown" }} textDecor='none'>
-        <IoPersonOutline />
-      </Link>
-      <Link href='/' color='black' _hover={{ color: "brown" }} textDecor='none'>
+      <NextLink
+        href='/admin'
+        data-cy='admin-link'
+        color='black'
+        // _hover={{ color: "brown" }}
+        // textDecor='none'
+      >
+        {/* <IoPersonOutline /> */}
+        <AdminSidebar />
+      </NextLink>
+      <Link color='black' _hover={{ color: "brown" }} textDecor='none'>
         <LuHeart />
       </Link>
 
@@ -33,8 +42,8 @@ export default function NavIcons() {
           color='white'
           fontSize='1rem'
           position='absolute'
-          top='-0.7rem'
-          right='-0.9rem'
+          top='-0.6rem'
+          right='-0.7rem'
           data-cy='cart-items-count-badge'
         >
           {cartCount}
