@@ -1,5 +1,5 @@
 "use client";
-import { Product } from "@/data";
+import { Product, products } from "@/data";
 import {
   Box,
   Drawer,
@@ -16,7 +16,11 @@ import NextLink from "next/link";
 import React from "react";
 import { IoPersonOutline } from "react-icons/io5";
 
-export default function AdminSidebar(product: Product) {
+interface AdminSidebarProps {
+  product?: Product;
+}
+
+export default function AdminSidebar({ product }: AdminSidebarProps) {
   const [size, setSize] = React.useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const drawerSize = "sm";
@@ -86,8 +90,7 @@ export default function AdminSidebar(product: Product) {
               </Box>
             </NextLink>
             <hr color='black' />
-
-            <NextLink href={`/admin/product/${product.id}`}>
+            <NextLink href={`/admin/product/${product?.id}`}>
               <Box
                 m='3rem'
                 padding='0.5rem'
