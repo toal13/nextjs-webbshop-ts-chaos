@@ -9,17 +9,23 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
+import { useAdmin } from "../contexts/AdminContext";
 
 interface Props {
   product?: Product;
 }
 
 export default function ProductForm(props: Props) {
+  const { addProduct } = useAdmin();
   const isEdit = Boolean(props.product);
 
   const handleSubmit = (values: any) => {
     console.log(values);
-    localStorage.setItem("product", JSON.stringify(values));
+    if (isEdit) {
+      console.log("Product updated!");
+    } else {
+      addProduct(values);
+    }
   };
 
   return (
@@ -109,7 +115,7 @@ export default function ProductForm(props: Props) {
                     <Input
                       {...field}
                       data-cy='product-image-error'
-                      autoComplete='description'
+                      autoComplete='image'
                       focusBorderColor='brand.400'
                     />
                     <FormErrorMessage data-cy='product-image-error'>
@@ -146,7 +152,7 @@ export default function ProductForm(props: Props) {
                 variant='solid'
                 isLoading={formikProps.isSubmitting}
               >
-                {isEdit ? "ADD PRODUCT" : "UPDATE PRODUCT"}
+                {isEdit ? "UPDATE PRODUCT" : "ADD PRODUCT"}
               </Button>
             </Form>
           );

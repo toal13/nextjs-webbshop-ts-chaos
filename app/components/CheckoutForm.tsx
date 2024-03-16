@@ -55,7 +55,6 @@ export default function CheckoutForm() {
                   <FormLabel>Email address</FormLabel>
                   <Input
                     {...field}
-                    placeholder='Email address'
                     data-cy='customer-email'
                     autoComplete='email'
                     focusBorderColor='brand.400'
@@ -76,7 +75,6 @@ export default function CheckoutForm() {
                     <FormLabel>First Name</FormLabel>
                     <Input
                       {...field}
-                      placeholder='First name'
                       data-cy='customer-name'
                       autoComplete='name'
                       focusBorderColor='brand.400'
@@ -95,7 +93,6 @@ export default function CheckoutForm() {
                     <FormLabel>Last Name</FormLabel>
                     <Input
                       {...field}
-                      placeholder='Last name'
                       autoComplete='name'
                       focusBorderColor='brand.400'
                     />

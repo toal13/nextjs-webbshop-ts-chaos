@@ -1,8 +1,7 @@
 import ProductForm from "@/app/components/ProductForm";
-import { Product } from "@/data";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 
-export default function AdminNewProductPage(product: Product) {
+export default function AdminNewProductPage() {
   return (
     <div>
       <Text textAlign='center' fontSize='1.7rem' mt='2rem'>
@@ -18,23 +17,28 @@ export default function AdminNewProductPage(product: Product) {
         p='1rem'
         gap={{ base: "1rem", md: "2rem" }}
       >
-        <Box
-          width={{ base: "350px", md: "400px" }}
-          height={{ base: "300px", md: "480px" }}
-          rounded='lg'
-          overflow='hidden'
-        >
-          <Image
-            width='100%'
-            height='100%'
-            objectFit='cover'
-            _hover={{ cursor: "pointer", transform: "scale(1.1)" }}
-            transition='0.3s ease-in-out'
-            src='https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&w=800'
-            alt='product image'
-          ></Image>
+        <Box>
+          <Text p='0.2rem'>Image Preview</Text>
+
+          <Box
+            width={{ base: "350px", md: "400px" }}
+            height={{ base: "300px", md: "480px" }}
+            rounded='lg'
+            overflow='hidden'
+          >
+            {" "}
+            <Image
+              width='100%'
+              height='100%'
+              objectFit='cover'
+              _hover={{ cursor: "pointer", transform: "scale(1.1)" }}
+              transition='0.3s ease-in-out'
+              src='https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&w=800'
+              alt='Preview product image'
+            ></Image>
+          </Box>
         </Box>
-        <ProductForm product={product} />
+        <ProductForm />
       </Flex>
     </div>
   );
