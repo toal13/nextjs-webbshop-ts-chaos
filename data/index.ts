@@ -34,8 +34,13 @@ export const ValidationSchema = Yup.object({
 export const ProductSchema = Yup.object().shape<
   Record<keyof Product, Yup.AnySchema>
 >({
-  id: Yup.string().required("Please enter the product id"),
-  image: Yup.string().required("Please enter the product image url"),
+  id: Yup.string()
+    .matches(
+      /^(\d{3} \d{2}|\d{6})$/,
+      "Invalid product id format. Must be a 6 digit number"
+    )
+    .required("Please enter the product id"),
+  image: Yup.string().required("Please enter the image url").url().nullable(),
   title: Yup.string().required("Please enter the product title"),
   description: Yup.string().required("Please enter the product description"),
   price: Yup.string().required("Please enter the product price"),

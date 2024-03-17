@@ -1,6 +1,5 @@
 "use client";
 
-import { products } from "@/data";
 import { Link } from "@chakra-ui/next-js";
 import {
   Flex,
@@ -13,10 +12,12 @@ import {
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { LuHeart } from "react-icons/lu";
 import HomePageTop from "./components/HomePageTop";
+import { useAdmin } from "./contexts/AdminContext";
 import { useCart } from "./contexts/CartContext";
 
 export default function Home() {
   const { addToCart } = useCart();
+  const { products } = useAdmin();
 
   return (
     <Flex flexDir='column'>

@@ -32,13 +32,14 @@ export default function CartItem({ item }: CartItemProps) {
       direction='row'
       overflow='hidden'
       variant='outline'
-      justify='justify-between'
+      justify='center'
       align='center'
       p='0.5rem'
-      gap={{ base: "1rem", md: "2rem" }}
+      gap='1rem'
       width={{ base: "100%", md: "60%" }}
+      height={{ base: "150px", md: "200px" }}
     >
-      <Box w='150px' h='150px'>
+      <Box w='150px' h={{ base: "130px", md: "150px" }}>
         <Image
           objectFit='cover'
           width='100%'
@@ -63,7 +64,7 @@ export default function CartItem({ item }: CartItemProps) {
         <MdClose />
       </Square>
 
-      <Stack>
+      <Stack width='100%'>
         <CardBody flexDir='column' gap='3'>
           <Heading size='md' data-cy='product-title' textTransform='capitalize'>
             {item.title}
@@ -74,39 +75,40 @@ export default function CartItem({ item }: CartItemProps) {
           </Text>
         </CardBody>
 
-        <CardFooter fontSize='1.3rem'>
-          <Flex
-            justify='space-between'
-            gap={{ base: "2rem", md: "10rem" }}
-            data-cy='quantity-controls'
-          >
-            <Text fontSize='1rem' fontWeight='semibold' data-cy='product-price'>
-              Total: {calculatePrice()} kr
-            </Text>
+        <CardFooter
+          display='flex'
+          justifyContent='space-between'
+          alignItems='center'
+          data-cy='quantity-controls'
+          fontSize='1.3rem'
+          width='100%'
+        >
+          <Text fontSize='1rem' fontWeight='semibold' data-cy='product-price'>
+            Total: {calculatePrice()} kr
+          </Text>
 
-            <Flex>
-              <Square
-                bg='#D9D9D9'
-                size='30px'
-                onClick={() => removeFromCart(item)}
-                data-cy='decrease-quantity-button'
-                _hover={{ cursor: "pointer", transform: "scale(1.1)" }}
-              >
-                <MinusIcon />
-              </Square>
-              <Square bg='#f4f2f2' size='30px' data-cy='product-quantity'>
-                <Text>{item.quantity}</Text>
-              </Square>
-              <Square
-                bg='#D9D9D9'
-                size='30px'
-                onClick={() => addToCart(item)}
-                _hover={{ cursor: "pointer", transform: "scale(1.1)" }}
-                data-cy='increase-quantity-button'
-              >
-                <AddIcon />
-              </Square>
-            </Flex>
+          <Flex>
+            <Square
+              bg='#D9D9D9'
+              size='30px'
+              onClick={() => removeFromCart(item)}
+              data-cy='decrease-quantity-button'
+              _hover={{ cursor: "pointer", transform: "scale(1.1)" }}
+            >
+              <MinusIcon />
+            </Square>
+            <Square bg='#f4f2f2' size='30px' data-cy='product-quantity'>
+              <Text>{item.quantity}</Text>
+            </Square>
+            <Square
+              bg='#D9D9D9'
+              size='30px'
+              onClick={() => addToCart(item)}
+              _hover={{ cursor: "pointer", transform: "scale(1.1)" }}
+              data-cy='increase-quantity-button'
+            >
+              <AddIcon />
+            </Square>
           </Flex>
         </CardFooter>
       </Stack>

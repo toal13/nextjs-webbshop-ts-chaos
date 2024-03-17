@@ -8,23 +8,45 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, FormikHelpers } from "formik";
+import React from "react";
 import { useAdmin } from "../contexts/AdminContext";
 
 interface Props {
   product?: Product;
+  setImagePreview: (imageUrl: string) => void;
+}
+
+interface FormValues {
+  id: string;
+  image: string;
+  title: string;
+  description: string;
+  price: string;
 }
 
 export default function ProductForm(props: Props) {
   const { addProduct } = useAdmin();
   const isEdit = Boolean(props.product);
 
-  const handleSubmit = (values: any) => {
+  const handleSubmit = (
+    values: FormValues,
+    formikHelpers: FormikHelpers<FormValues>
+  ) => {
     console.log(values);
     if (isEdit) {
       console.log("Product updated!");
     } else {
       addProduct(values);
+      formikHelpers.resetForm({
+        values: {
+          id: "",
+          image: "",
+          title: "",
+          description: "",
+          price: "",
+        },
+      });
     }
   };
 
@@ -44,6 +66,13 @@ export default function ProductForm(props: Props) {
         onSubmit={handleSubmit}
       >
         {(formikProps) => {
+          const handleImageChange = (
+            event: React.ChangeEvent<HTMLInputElement>
+          ) => {
+            const imageUrl = event.target.value;
+            formikProps.setFieldValue("image", imageUrl);
+            props.setImagePreview(imageUrl);
+          };
           return (
             <Form data-cy='product-form'>
               <Field name='title'>
@@ -117,6 +146,7 @@ export default function ProductForm(props: Props) {
                       data-cy='product-image-error'
                       autoComplete='image'
                       focusBorderColor='brand.400'
+                      onChange={handleImageChange}
                     />
                     <FormErrorMessage data-cy='product-image-error'>
                       {form.errors.image}

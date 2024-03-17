@@ -1,7 +1,10 @@
+"use client";
 import ProductForm from "@/app/components/ProductForm";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { useState } from "react";
 
 export default function AdminNewProductPage() {
+  const [imagePreview, setImagePreview] = useState("");
   return (
     <div>
       <Text textAlign='center' fontSize='1.7rem' mt='2rem'>
@@ -33,12 +36,15 @@ export default function AdminNewProductPage() {
               objectFit='cover'
               _hover={{ cursor: "pointer", transform: "scale(1.1)" }}
               transition='0.3s ease-in-out'
-              src='https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&w=800'
+              src={
+                imagePreview ||
+                "https://images.pexels.com/photos/3356416/pexels-photo-3356416.jpeg?auto=compress&cs=tinysrgb&w=800"
+              }
               alt='Preview product image'
             ></Image>
           </Box>
         </Box>
-        <ProductForm />
+        <ProductForm setImagePreview={setImagePreview} />
       </Flex>
     </div>
   );
