@@ -1,5 +1,5 @@
-import { Product } from "@/data";
-import { products as initialProducts } from "@/data";
+import { Product, products as initialProducts } from "@/data";
+import { useToast } from "@chakra-ui/react";
 
 import {
   PropsWithChildren,
@@ -19,6 +19,7 @@ const AdminContext = createContext({} as AdminContextValue);
 // Skapa Provider-komponenten
 function AdminProvider(props: PropsWithChildren) {
   const [products, setProducts] = useState<Product[]>([]);
+  const toast = useToast();
 
   useEffect(() => {
     const storedProducts = localStorage.getItem("products");
@@ -32,11 +33,35 @@ function AdminProvider(props: PropsWithChildren) {
 
   const addProduct = (newProduct: Product) => {
     setProducts((currentProducts) => {
-      const updatedProducts = [...currentProducts, newProduct];
-      localStorage.setItem("products", JSON.stringify(updatedProducts));
-      return updatedProducts;
+      const isProductPresent = currentProducts.some(
+        (product) => product.id === newProduct.id
+      );
+
+      if (!isProductPresent) {
+        const updatedProducts = [...currentProducts, newProduct];
+        localStorage.setItem("products", JSON.stringify(updatedProducts));
+        toast({
+          title: "Product added",
+          description: `${newProduct.title} has been added to the store`,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        return updatedProducts;
+      } else {
+        toast({
+          title: "Product already exists",
+          description: `${newProduct.title} already exists in the store`,
+          status: "warning",
+          duration: 3000,
+          isClosable: true,
+        });
+
+        return currentProducts;
+      }
     });
   };
+
   return (
     <AdminContext.Provider
       value={{
