@@ -1,16 +1,25 @@
 "use client";
 
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Link } from "@chakra-ui/next-js";
 import {
+  Box,
+  Button,
+  Circle,
   Flex,
   GridItem,
   Icon,
   Image,
+  ListItem,
   SimpleGrid,
   Text,
+  UnorderedList,
 } from "@chakra-ui/react";
+import { AiFillCrown } from "react-icons/ai";
+import { DiProlog, DiYii } from "react-icons/di";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { LuHeart } from "react-icons/lu";
+import HomePageBottom from "./components/HomePageBottom";
 import HomePageTop from "./components/HomePageTop";
 import { useAdmin } from "./contexts/AdminContext";
 import { useCart } from "./contexts/CartContext";
@@ -101,6 +110,7 @@ export default function Home() {
           </GridItem>
         ))}
       </SimpleGrid>
+      <HomePageBottom />
     </Flex>
   );
 }
