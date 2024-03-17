@@ -1,6 +1,6 @@
 "use client";
 
-import { ValidationSchema } from "@/data";
+import { FormValues, ValidationSchema } from "@/data";
 import {
   Button,
   ButtonGroup,
@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 
 export default function CheckoutForm() {
   const router = useRouter();
-  const handleSubmit = (values: any) => {
+  const handleSubmit = (values: FormValues) => {
     console.log(values);
     router.push("/confirmation");
   };

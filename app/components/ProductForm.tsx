@@ -17,21 +17,13 @@ interface Props {
   setImagePreview: (imageUrl: string) => void;
 }
 
-interface FormValues {
-  id: string;
-  image: string;
-  title: string;
-  description: string;
-  price: string;
-}
-
 export default function ProductForm(props: Props) {
   const { addProduct } = useAdmin();
   const isEdit = Boolean(props.product);
 
   const handleSubmit = (
-    values: FormValues,
-    formikHelpers: FormikHelpers<FormValues>
+    values: Product,
+    formikHelpers: FormikHelpers<Product>
   ) => {
     console.log(values);
     if (isEdit) {

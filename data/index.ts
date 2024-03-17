@@ -11,6 +11,16 @@ export interface Product {
   price: string;
 }
 
+export interface FormValues {
+  email: string;
+  firstName: string;
+  lastName: string;
+  address: string;
+  city: string;
+  phone: string;
+  postalCode: string;
+}
+
 export const ValidationSchema = Yup.object({
   email: Yup.string()
     .email("Invalid email address")
