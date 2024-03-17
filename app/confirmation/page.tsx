@@ -17,8 +17,21 @@ import {
 } from "@chakra-ui/react";
 import { useCart } from "../contexts/CartContext";
 
+function generateRandomOrderNumber(length: number): string {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let orderNumber = "";
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    orderNumber += characters[randomIndex];
+  }
+
+  return orderNumber;
+}
+
 export default function Confirmation() {
   const { cart } = useCart();
+  const orderNumber = generateRandomOrderNumber(12);
 
   const calculateTotalPrice = () => {
     let totalPrice = 0;
@@ -37,7 +50,7 @@ export default function Confirmation() {
         <Text mb={6}>
           Order Number:{" "}
           <Text as="span" fontWeight="bold">
-            Random number
+            {orderNumber}
           </Text>
         </Text>
         <Text mb={6}>Thank you for choosing to shop with us.</Text>
