@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import HomePageBottom from "./components/HomePageBottom";
 import { fonts } from "./fonts";
 import { Providers } from "./providers";
 import { LayoutProps } from "./types";
@@ -24,6 +25,8 @@ export default function RootLayout({ children }: LayoutProps) {
           <Box minH='100vh' as='main'>
             {children}{" "}
           </Box>
+          <HomePageBottom />
+
           <Footer />
         </Providers>
       </body>

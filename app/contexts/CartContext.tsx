@@ -16,7 +16,6 @@ interface CartContextValue {
   addToCart: (product: Product) => void;
   removeFromCart: (product: Product) => void;
   removeSameIdItems: (product: Product) => void;
-  clearCart: () => void;
   cartCount: number;
   clearCartSilently: () => void;
 }
@@ -125,17 +124,6 @@ function CartProvider(props: PropsWithChildren) {
     });
   };
 
-  const clearCart = () => {
-    setCart([]);
-    toast({
-      title: "Cart Empty",
-      description: "All items have been removed form your cart.",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
-  };
-
   const clearCartSilently = useCallback(() => {
     setCart([]);
   }, []);
@@ -153,7 +141,6 @@ function CartProvider(props: PropsWithChildren) {
         addToCart,
         removeFromCart,
         removeSameIdItems,
-        clearCart,
         cartCount,
         clearCartSilently,
       }}
