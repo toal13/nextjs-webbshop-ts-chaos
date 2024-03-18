@@ -108,18 +108,18 @@ export default function HomePageBottom() {
         >
           <ListItem>
             <Circle size='70px' bg='#E4A757' color='white' fontSize='1rem'>
-              <DiYii fontSize='2rem' />
+              <DiYii fontSize='2rem' color='black' />
             </Circle>
           </ListItem>
           <ListItem>
             {" "}
             <Circle size='70px' bg='#E4A757' color='white' fontSize='1rem'>
-              <AiFillCrown fontSize='2.5rem' />
+              <AiFillCrown fontSize='2.5rem' color='black' />
             </Circle>
           </ListItem>
           <ListItem>
             <Circle size='70px' bg='#E4A757' color='white' fontSize='1rem'>
-              <DiProlog fontSize='2.5rem' />
+              <DiProlog fontSize='2.5rem' color='black' />
             </Circle>
           </ListItem>
         </UnorderedList>

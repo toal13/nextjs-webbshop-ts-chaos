@@ -38,7 +38,7 @@ export default function AdminNewProductPage() {
               transition='0.3s ease-in-out'
               src={
                 imagePreview ||
-                "https://images.pexels.com/photos/3356416/pexels-photo-3356416.jpeg?auto=compress&cs=tinysrgb&w=800"
+                "https://images.unsplash.com/photo-1604782206219-3b9576575203?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww"
               }
               alt='Preview product image'
             ></Image>

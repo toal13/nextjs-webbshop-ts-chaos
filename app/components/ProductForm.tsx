@@ -14,7 +14,7 @@ import { useAdmin } from "../contexts/AdminContext";
 
 interface Props {
   product?: Product;
-  setImagePreview: (imageUrl: string) => void;
+  setImagePreview?: (imageUrl: string) => void;
 }
 
 export default function ProductForm(props: Props) {
@@ -63,7 +63,9 @@ export default function ProductForm(props: Props) {
           ) => {
             const imageUrl = event.target.value;
             formikProps.setFieldValue("image", imageUrl);
-            props.setImagePreview(imageUrl);
+            if (props.setImagePreview) {
+              props.setImagePreview(imageUrl);
+            }
           };
           return (
             <Form data-cy='product-form'>
