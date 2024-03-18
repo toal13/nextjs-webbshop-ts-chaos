@@ -31,7 +31,6 @@ export default function CheckoutPage() {
         justify='center'
         alignItems='center'
         m='16px auto'
-        // mt={{ base: "6rem", md: "10rem" }}
         gap='1rem'
         mt='2rem'
       >

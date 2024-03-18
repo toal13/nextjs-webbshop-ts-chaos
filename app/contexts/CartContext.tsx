@@ -27,7 +27,6 @@ function CartProvider(props: PropsWithChildren) {
   const toast = useToast();
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Recalculate cart count when cart changes
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {

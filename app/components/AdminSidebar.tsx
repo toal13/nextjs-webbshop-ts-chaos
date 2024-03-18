@@ -16,7 +16,11 @@ import NextLink from "next/link";
 import React from "react";
 import { IoPersonOutline } from "react-icons/io5";
 
-export default function AdminSidebar(product: Product) {
+interface AdminSidebarProps {
+  product?: Product;
+}
+
+export default function AdminSidebar({ product }: AdminSidebarProps) {
   const [size, setSize] = React.useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const drawerSize = "sm";
@@ -53,7 +57,7 @@ export default function AdminSidebar(product: Product) {
           />
           <DrawerHeader>
             <Text fontSize='2xl' m='3rem' p='0.5rem' textTransform='uppercase'>
-              Admin Panel
+              Dashboard
             </Text>
           </DrawerHeader>
           <hr color='black' />
@@ -68,6 +72,12 @@ export default function AdminSidebar(product: Product) {
                 fontSize='1.5rem'
                 textAlign='left'
                 borderRadius='5px'
+                transition={"0.3s ease-in-out"}
+                _hover={{
+                  color: "brown",
+                  cursor: "pointer",
+                  transform: "translateX(5px)",
+                }}
               >
                 Admin - All Products
               </Box>
@@ -81,19 +91,30 @@ export default function AdminSidebar(product: Product) {
                 fontSize='1.5rem'
                 textAlign='left'
                 borderRadius='5px'
+                transition={"0.3s ease-in-out"}
+                _hover={{
+                  color: "brown",
+                  cursor: "pointer",
+                  transform: "translateX(5px)",
+                }}
               >
                 New Product
               </Box>
             </NextLink>
             <hr color='black' />
-
-            <NextLink href={`/admin/product/${product.id}`}>
+            <NextLink href={`/admin/product/${product?.id}`}>
               <Box
                 m='3rem'
                 padding='0.5rem'
                 fontSize='1.5rem'
                 textAlign='left'
                 borderRadius='5px'
+                transition={"0.3s ease-in-out"}
+                _hover={{
+                  color: "brown",
+                  cursor: "pointer",
+                  transform: "translateX(5px)",
+                }}
               >
                 Edit Product
               </Box>
