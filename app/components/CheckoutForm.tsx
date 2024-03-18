@@ -1,5 +1,6 @@
 "use client";
 
+import { FormValues, ValidationSchema } from "@/data";
 import {
   Button,
   ButtonGroup,
@@ -13,30 +14,10 @@ import {
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/navigation";
-import * as Yup from "yup";
 
-const validationSchema = Yup.object({
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Please enter your email"),
-  firstName: Yup.string().required("Please enter your first name"),
-  //   lastName: Yup.string().required("Please enter your last name"),
-  address: Yup.string().required("Please enter your address"),
-  city: Yup.string().required("Please enter your city"),
-  phone: Yup.string()
-    .matches(
-      /^\+46\d{7,9}$|0\d{1,2}-?\d{2,3} ?\d{2} ?\d{2}$|^07\d{1}-?\d{3} ?\d{2} ?\d{2}$/,
-      "Invalid phone number format"
-    )
-    .required("Please enter your phone number"),
-
-  postalCode: Yup.string()
-    .matches(/^(\d{3} \d{2}|\d{5})$/, "Invalid postal code format")
-    .required("Please enter your postal code"),
-});
 export default function CheckoutForm() {
   const router = useRouter();
-  const handleSubmit = (values: any) => {
+  const handleSubmit = (values: FormValues) => {
     console.log(values);
     router.push("/confirmation");
   };
@@ -60,7 +41,7 @@ export default function CheckoutForm() {
           phone: "",
           postalCode: "",
         }}
-        validationSchema={validationSchema}
+        validationSchema={ValidationSchema}
         onSubmit={handleSubmit}
       >
         {(props) => (
@@ -74,7 +55,6 @@ export default function CheckoutForm() {
                   <FormLabel>Email address</FormLabel>
                   <Input
                     {...field}
-                    placeholder='Email address'
                     data-cy='customer-email'
                     autoComplete='email'
                     focusBorderColor='brand.400'
@@ -95,7 +75,6 @@ export default function CheckoutForm() {
                     <FormLabel>First Name</FormLabel>
                     <Input
                       {...field}
-                      placeholder='First name'
                       data-cy='customer-name'
                       autoComplete='name'
                       focusBorderColor='brand.400'
@@ -114,7 +93,6 @@ export default function CheckoutForm() {
                     <FormLabel>Last Name</FormLabel>
                     <Input
                       {...field}
-                      placeholder='Last name'
                       autoComplete='name'
                       focusBorderColor='brand.400'
                     />

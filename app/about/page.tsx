@@ -46,14 +46,12 @@ function About() {
       justifyContent='center'
       alignItems='center'
       fontSize='2rem'
-      mt='5rem'
+      mt='3rem'
       width={{ base: "80%", md: "60%" }}
       mx='auto'
       gap='2rem'
     >
-      <Text fontSize={{ base: "1.3rem", md: "2rem" }}>
-        Our Story & Philosophy
-      </Text>
+      <Text fontSize='1.7rem'>Our Story & Philosophy</Text>
       <Text fontSize={{ base: "1rem", md: "1.3rem" }} textAlign='center'>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, facilis.
         Assumenda cumque eaque corrupti enim molestias unde iure id className.
@@ -66,14 +64,33 @@ function About() {
         facere praesentium modi vel ut doloremque!
       </Text>
 
-      <Container h='200px'>
+      <Container
+        h='40vh'
+        mt={{ base: "2rem", md: "5rem" }}
+        position='relative'
+        _after={{
+          content: `""`,
+          position: "absolute",
+          top: 0,
+          left: 0,
+          w: "100%",
+          h: "100%",
+          bg: "rgba(0,0,0,0.2)",
+        }}
+        clipPath={{
+          base: "none",
+          md: "polygon(50% 0, 100% 10%, 100% 89%, 50% 100%, 0 90%, 0 10%)",
+        }}
+      >
         <Image
-          src='https://images.pexels.com/photos/1181438/pexels-photo-1181438.jpeg?auto=compress&cs=tinysrgb&w=800'
+          src='https://images.pexels.com/photos/5256816/pexels-photo-5256816.jpeg?auto=compress&cs=tinysrgb&w=800'
           alt='about us image'
           fit='cover'
+          position='absolute'
+          top='0'
+          left='0'
           w='100%'
           h='100%'
-          mt='2rem'
         />
       </Container>
 

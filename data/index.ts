@@ -11,14 +11,49 @@ export interface Product {
   price: string;
 }
 
+export interface FormValues {
+  email: string;
+  firstName: string;
+  lastName: string;
+  address: string;
+  city: string;
+  phone: string;
+  postalCode: string;
+}
+
+export const ValidationSchema = Yup.object({
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Please enter your email"),
+  firstName: Yup.string().required("Please enter your first name"),
+  //   lastName: Yup.string().required("Please enter your last name"),
+  address: Yup.string().required("Please enter your address"),
+  city: Yup.string().required("Please enter your city"),
+  phone: Yup.string()
+    .matches(
+      /^\+46\d{7,9}$|0\d{1,2}-?\d{2,3} ?\d{2} ?\d{2}$|^07\d{1}-?\d{3} ?\d{2} ?\d{2}$/,
+      "Invalid phone number format"
+    )
+    .required("Please enter your phone number"),
+
+  postalCode: Yup.string()
+    .matches(/^(\d{3} \d{2}|\d{5})$/, "Invalid postal code format")
+    .required("Please enter your postal code"),
+});
+
 export const ProductSchema = Yup.object().shape<
   Record<keyof Product, Yup.AnySchema>
 >({
-  id: Yup.string().required(),
-  image: Yup.string().required(),
-  title: Yup.string().required(),
-  description: Yup.string().required(),
-  price: Yup.string().required(),
+  id: Yup.string()
+    .matches(
+      /^(\d{3} \d{2}|\d{6})$/,
+      "Invalid product id format. Must be a 6 digit number"
+    )
+    .required("Please enter the product id"),
+  image: Yup.string().required("Please enter the image url").url().nullable(),
+  title: Yup.string().required("Please enter the product title"),
+  description: Yup.string().required("Please enter the product description"),
+  price: Yup.string().required("Please enter the product price"),
 });
 
 export interface CartItem extends Product {

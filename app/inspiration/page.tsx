@@ -11,14 +11,31 @@ function Inspiration() {
         <Text fontSize='1.7rem' mt='3rem'>
           Inspiration & Tips
         </Text>
-        <Box position='relative' width='100%'>
+        <Box
+          position='relative'
+          width='100%'
+          h='50vh'
+          mt='3rem'
+          _after={{
+            content: `""`,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            w: "100%",
+            h: "100%",
+            bg: "rgba(0,0,0,0.2)",
+          }}
+          clipPath={{
+            base: "none",
+            md: "polygon(50% 0, 100% 10%, 100% 89%, 50% 100%, 0 90%, 0 10%)",
+          }}
+        >
           <Image
             src='https://images.pexels.com/photos/6758771/pexels-photo-6758771.jpeg?auto=compress&cs=tinysrgb&w=800'
             alt='inspiration image'
             objectFit='cover'
             width='100%'
-            height='350px'
-            mt='3rem'
+            height='100%'
           />
           <Text
             position='absolute'
@@ -28,6 +45,7 @@ function Inspiration() {
             top='42%'
             left='50%'
             transform='translate(-50%, -42%)'
+            zIndex='1'
           >
             Explore. Dream. Create
           </Text>
