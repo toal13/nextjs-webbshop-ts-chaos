@@ -44,6 +44,7 @@ export default function HomePageTop() {
           width='fit-content'
           fontSize='1.5rem'
           bg='#E4A757'
+          textTransform='capitalize'
           onClick={() => window.scrollTo({ top: 650, behavior: "smooth" })}
           _hover={{ bg: "#efdbc2" }}
         >
