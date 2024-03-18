@@ -3,18 +3,19 @@
 import {
   Box,
   Container,
+  Flex,
   Heading,
-  Text,
   Image,
   Table,
-  Flex,
   Tbody,
   Td,
+  Text,
+  Tfoot,
   Th,
   Thead,
   Tr,
-  Tfoot,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { useCart } from "../contexts/CartContext";
 
 function generateRandomOrderNumber(length: number): string {
@@ -30,12 +31,17 @@ function generateRandomOrderNumber(length: number): string {
 }
 
 export default function Confirmation() {
-  const { cart } = useCart();
+  const { cart, clearCartSilently } = useCart();
+  const [orderItems] = useState(cart);
   const orderNumber = generateRandomOrderNumber(12);
+
+  useEffect(() => {
+    clearCartSilently();
+  }, [clearCartSilently]);
 
   const calculateTotalPrice = () => {
     let totalPrice = 0;
-    cart.forEach((item) => {
+    orderItems.forEach((item) => {
       totalPrice += Number(item.price) * item.quantity;
     });
     return totalPrice;
@@ -72,7 +78,7 @@ export default function Confirmation() {
           </Tr>
         </Thead>
         <Tbody>
-          {cart.map((item) => (
+          {orderItems.map((item) => (
             <Tr key={item.id}>
               <Td>
                 <Flex alignItems="center">

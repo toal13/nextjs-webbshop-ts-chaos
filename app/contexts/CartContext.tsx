@@ -3,6 +3,7 @@ import { useToast } from "@chakra-ui/react";
 import {
   PropsWithChildren,
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -17,6 +18,7 @@ interface CartContextValue {
   removeSameIdItems: (product: Product) => void;
   clearCart: () => void;
   cartCount: number;
+  clearCartSilently: () => void;
 }
 
 const CartContext = createContext({} as CartContextValue);
@@ -135,6 +137,10 @@ function CartProvider(props: PropsWithChildren) {
     });
   };
 
+  const clearCartSilently = useCallback(() => {
+    setCart([]);
+  }, []);
+
   // härleda från tillstånd
   const cartCount = cart.reduce(
     (totalItems, item) => totalItems + item.quantity,
@@ -150,6 +156,7 @@ function CartProvider(props: PropsWithChildren) {
         removeSameIdItems,
         clearCart,
         cartCount,
+        clearCartSilently,
       }}
     >
       {props.children}
