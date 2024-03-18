@@ -11,6 +11,7 @@ import {
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import React from "react";
 import { useAdmin } from "../contexts/AdminContext";
+import createRandomId from "../utils/createRandomId";
 
 interface Props {
   product?: Product;
@@ -20,6 +21,7 @@ interface Props {
 export default function ProductForm(props: Props) {
   const { addProduct } = useAdmin();
   const isEdit = Boolean(props.product);
+  const newId = createRandomId();
 
   const handleSubmit = (
     values: Product,
@@ -47,7 +49,7 @@ export default function ProductForm(props: Props) {
       <Formik
         initialValues={
           props.product || {
-            id: "",
+            id: newId,
             image: "",
             title: "",
             description: "",
