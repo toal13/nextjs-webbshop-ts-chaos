@@ -9,6 +9,7 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { Field, Form, Formik, FormikHelpers } from "formik";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useAdmin } from "../contexts/AdminContext";
 import createRandomId from "../utils/createRandomId";
@@ -20,6 +21,7 @@ interface Props {
 
 export default function ProductForm(props: Props) {
   const { addProduct } = useAdmin();
+  const router = useRouter();
   const isEdit = Boolean(props.product);
   const newId = createRandomId();
 
@@ -32,6 +34,7 @@ export default function ProductForm(props: Props) {
       console.log("Product updated!");
     } else {
       addProduct(values);
+      router.push("/admin");
       formikHelpers.resetForm({
         values: {
           id: "",
@@ -174,6 +177,7 @@ export default function ProductForm(props: Props) {
                 _hover={{ bg: "#efdbc2" }}
                 variant='solid'
                 isLoading={formikProps.isSubmitting}
+                onClick={() => formikProps.handleSubmit()}
               >
                 {isEdit ? "UPDATE PRODUCT" : "ADD PRODUCT"}
               </Button>

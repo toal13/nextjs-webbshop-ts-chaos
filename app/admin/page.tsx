@@ -20,12 +20,12 @@ export default function AdminHomePage() {
 
   return (
     <>
-      <Flex justify="center" m="5">
-        <NextLink href="/admin/product/new" data-cy="admin-add-product">
+      <Flex justify='center' m='5'>
+        <NextLink href='/admin/product/new' data-cy='admin-add-product'>
           <Button
-            bg="rgba(78, 199, 145, 1)"
-            color="white"
-            size="lg"
+            bg='rgba(78, 199, 145, 1)'
+            color='white'
+            size='lg'
             _hover={{
               transform: "translateY(2px)",
               boxShadow: "lg",
@@ -49,38 +49,37 @@ export default function AdminHomePage() {
           </Thead>
           <Tbody>
             {products.map((product) => (
-              <Tr key={product.id} data-cy="product">
-                <Td display="flex" justifyContent="center" alignItems="center">
+              <Tr key={product.id} data-cy='product'>
+                <Td display='flex' justifyContent='center' alignItems='center'>
                   <Image
                     src={product.image}
                     alt={product.title}
-                    width="80px"
-                    height="80px"
+                    width='80px'
+                    height='80px'
                   />
                 </Td>
-                <Td data-cy="product-id">{product.id}</Td>
-                <Td data-cy="product-title">{product.title}</Td>
+                <Td data-cy='product-id'>{product.id}</Td>
+                <Td data-cy='product-title'>{product.title}</Td>
                 <Td
                   style={{ whiteSpace: "normal", width: "300px" }}
-                  data-cy="product-description"
+                  data-cy='product-description'
                 >
                   {product.description.length > 100
                     ? `${product.description.slice(0, 50)}...`
                     : product.description}
                 </Td>
-                <Td data-cy="product-price">{product.price}</Td>
+                <Td data-cy='product-price'>{product.price}</Td>
                 <Td>
-                  <Flex justify="center" alignItems="center" height="100%">
+                  <Flex justify='center' alignItems='center' height='100%'>
                     <NextLink
-                      href="/admin/product/edit"
-                      data-cy="admin-add-product"
+                      href='/admin/product/edit'
+                      data-cy='admin-edit-product'
                     >
                       <Button
-                        data-cy="admin-edit-product"
-                        bg="rgba(78, 199, 145, 1)"
-                        color="white"
-                        size="sm"
-                        mr="20px"
+                        bg='rgba(78, 199, 145, 1)'
+                        color='white'
+                        size='sm'
+                        mr='20px'
                         _hover={{
                           transform: "translateY(2px)",
                           boxShadow: "lg",
@@ -90,9 +89,9 @@ export default function AdminHomePage() {
                       </Button>
                     </NextLink>
                     <Button
-                      data-cy="admin-remove-product"
-                      colorScheme="red"
-                      size="sm"
+                      data-cy='admin-remove-product'
+                      colorScheme='red'
+                      size='sm'
                       _hover={{
                         transform: "translateY(2px)",
                         boxShadow: "lg",
