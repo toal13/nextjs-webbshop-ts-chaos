@@ -1,9 +1,17 @@
 "use client";
 
+import { Product } from "@/data";
 import {
   Button,
   Flex,
   Image,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Table,
   TableContainer,
   Tbody,
@@ -11,16 +19,58 @@ import {
   Th,
   Thead,
   Tr,
+  useDisclosure,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { useState } from "react";
 import { useAdmin } from "../contexts/AdminContext";
 
 export default function AdminHomePage() {
   const { products, removeProduct } = useAdmin();
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleDeleteClick = (product: Product) => {
+    setSelectedProduct(product);
+    onOpen();
+  };
+
+  const confirmDelete = () => {
+    if (selectedProduct) {
+      removeProduct(selectedProduct);
+      setSelectedProduct(null);
+      onClose();
+    }
+  };
 
   return (
     <>
       <Flex justify='center' m='5'>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Delete Product</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              {`Are you sure you want to delete this product?`}
+            </ModalBody>
+
+            <ModalFooter>
+              <Button
+                bg='green.400'
+                color='white'
+                onClick={onClose}
+                _hover={{ bg: "green.300 " }}
+                data-cy='confirm-delete-button'
+              >
+                Cancel
+              </Button>
+              <Button colorScheme='red' onClick={confirmDelete} ml={3}>
+                Delete
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
         <NextLink href='/admin/product/new' data-cy='admin-add-product'>
           <Button
             bg='rgba(78, 199, 145, 1)'
@@ -96,7 +146,7 @@ export default function AdminHomePage() {
                         transform: "translateY(2px)",
                         boxShadow: "lg",
                       }}
-                      onClick={() => removeProduct(product)}
+                      onClick={() => handleDeleteClick(product)}
                     >
                       Delete
                     </Button>
