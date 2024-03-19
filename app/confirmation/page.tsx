@@ -3,6 +3,7 @@
 import {
   Box,
   Container,
+  Divider,
   Flex,
   Heading,
   Image,
@@ -17,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useCart } from "../contexts/CartContext";
+import { useCustomer } from "../contexts/CustomerContext";
 
 function generateRandomOrderNumber(length: number): string {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -34,6 +36,7 @@ export default function Confirmation() {
   const { cart, clearCartSilently } = useCart();
   const [orderItems] = useState(cart);
   const orderNumber = generateRandomOrderNumber(12);
+  const { customerData } = useCustomer();
 
   useEffect(() => {
     clearCartSilently();
@@ -100,6 +103,20 @@ export default function Confirmation() {
           </Tr>
         </Tfoot>
       </Table>
+      <Divider />
+      <Box>
+        <Heading as="h1" mb={6}>
+          Delivery Information
+        </Heading>
+        <Text mb={6}>
+          {customerData.firstName} {customerData.lastName}
+        </Text>
+        <Text mb={6}>{customerData.address}</Text>
+        <Text mb={6}>{customerData.postalCode}</Text>
+        <Text mb={6}>{customerData.city}</Text>
+        <Text mb={6}>{customerData.phone}</Text>
+        <Text mb={6}>{customerData.email}</Text>
+      </Box>
     </Container>
   );
 }
