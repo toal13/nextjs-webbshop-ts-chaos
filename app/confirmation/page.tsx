@@ -7,6 +7,7 @@ import {
   Flex,
   Heading,
   Image,
+  ListItem,
   Table,
   Tbody,
   Td,
@@ -15,6 +16,7 @@ import {
   Th,
   Thead,
   Tr,
+  UnorderedList,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useCart } from "../contexts/CartContext";
@@ -52,7 +54,7 @@ export default function Confirmation() {
 
   return (
     <Container maxW="container.lg" py={10}>
-      <Box>
+      <Box mb={4}>
         <Heading as="h1" mb={6}>
           Order Confirmation
         </Heading>
@@ -62,7 +64,8 @@ export default function Confirmation() {
             {orderNumber}
           </Text>
         </Text>
-        <Text mb={6}>Thank you for choosing to shop with us.</Text>
+        <Text>Hello</Text>
+        <Text mb={4}>Thank you for choosing to shop with us.</Text>
         <Text mb={6}>
           {" "}
           We understand that you are just dying to get your new design favorite
@@ -71,8 +74,10 @@ export default function Confirmation() {
           you proudly open the door. We therefore hope that you will be
           completely satisfied with your order. Welcome back. Nest Desgin
         </Text>
+        <Text fontWeight="bold">Welcome Back.</Text>
+        <Text>Next Design </Text>
       </Box>
-      <Table variant="simple">
+      <Table variant="simple" mt={6} mb={6}>
         <Thead bg="gray.200">
           <Tr>
             <Th>Product</Th>
@@ -104,7 +109,7 @@ export default function Confirmation() {
         </Tfoot>
       </Table>
       <Divider />
-      <Box>
+      <Box mt={6}>
         <Heading as="h1" mb={6}>
           Delivery Information
         </Heading>
@@ -117,6 +122,35 @@ export default function Confirmation() {
         <Text mb={6}>{customerData.phone}</Text>
         <Text mb={6}>{customerData.email}</Text>
       </Box>
+      <Heading as="h1" mb={6}>
+        Your order step by step
+      </Heading>
+      <UnorderedList>
+        <ListItem>
+          Order confirmation via email. Your order has been received and you can
+          check your details.
+        </ListItem>
+        <ListItem color="gray.400">
+          The order is being processed. Your order will be sent when all
+          products are available for delivery. In the event of a delivery delay,
+          we will notify you via email. If you wish to receive a partial
+          delivery, please contact our customer service.
+        </ListItem>
+        <ListItem color="gray.400">
+          Delivery notification via email. Your goods are packed and on their
+          way to you.
+        </ListItem>
+        <ListItem color="gray.400">
+          SMS notification. You will receive an SMS when your parcel is
+          available to collect from your parcel agent. The package must be
+          picked up within 14 days. In case of home delivery, you will receive
+          an SMS to book a delivery time.
+        </ListItem>
+        <ListItem color="gray.400">
+          365 day right of return. You can always return your item if you regret
+          it.
+        </ListItem>
+      </UnorderedList>
     </Container>
   );
 }
