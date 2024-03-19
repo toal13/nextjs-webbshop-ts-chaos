@@ -12,6 +12,8 @@ import {
 interface AdminContextValue {
   products: Product[];
   addProduct: (product: Product) => void;
+  removeProduct: (product: Product) => void;
+  updateProduct: (productId: string, updatedProduct: Product) => void;
 }
 
 const AdminContext = createContext({} as AdminContextValue);
@@ -46,11 +48,36 @@ function AdminProvider(props: PropsWithChildren) {
     });
   };
 
+  const removeProduct = (item: Product) => {
+    const updatedProducts = products.filter(
+      (product) => product.id !== item.id
+    );
+    setProducts(updatedProducts);
+
+    toast({
+      title: "Product removed",
+      description: "The product has been removed successfully.",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+
+  const updateProduct = (productId: string, updatedProduct: Product) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === productId ? { ...product, ...updatedProduct } : product
+      )
+    );
+  };
+
   return (
     <AdminContext.Provider
       value={{
         products,
         addProduct,
+        removeProduct,
+        updateProduct
       }}
     >
       {props.children}
