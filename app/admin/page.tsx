@@ -37,7 +37,6 @@ export default function AdminHomePage(product: Product) {
 
       <TableContainer style={{ width: "100%", overflowX: "auto" }}>
         <Table>
-          <TableCaption>Imperial to metric conversion factors</TableCaption>
           <Thead>
             <Tr>
               <Th>image</Th>
@@ -50,12 +49,12 @@ export default function AdminHomePage(product: Product) {
           <Tbody>
             {products.map((product) => (
               <Tr key={product.id} data-cy="product">
-                <Td>
+                <Td display="flex" justifyContent="center" alignItems="center" border="1px solid red">
                   <Image
                     src={product.image}
                     alt={product.title}
-                    width="200px"
-                    height="200px"
+                    width="80px"
+                    height="80px"
                   />
                 </Td>
                 <Td data-cy="product-id">{product.id}</Td>
@@ -76,7 +75,7 @@ export default function AdminHomePage(product: Product) {
                       bg="rgba(78, 199, 145, 1)"
                       color="white"
                       size="sm"
-                      mr="3px"
+                      mr="20px"
                       _hover={{
                         transform: "translateY(2px)",
                         boxShadow: "lg",
