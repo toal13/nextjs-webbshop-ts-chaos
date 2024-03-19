@@ -1,12 +1,10 @@
 "use client";
 
-import { Product, products } from "@/data";
 import {
   Button,
   Flex,
   Image,
   Table,
-  TableCaption,
   TableContainer,
   Tbody,
   Td,
@@ -15,8 +13,11 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { useAdmin } from "../contexts/AdminContext";
 
-export default function AdminHomePage(product: Product) {
+export default function AdminHomePage() {
+  const { products, removeProduct } = useAdmin();
+
   return (
     <>
       <Flex justify="center" m="5">
@@ -49,7 +50,7 @@ export default function AdminHomePage(product: Product) {
           <Tbody>
             {products.map((product) => (
               <Tr key={product.id} data-cy="product">
-                <Td display="flex" justifyContent="center" alignItems="center" border="1px solid red">
+                <Td display="flex" justifyContent="center" alignItems="center">
                   <Image
                     src={product.image}
                     alt={product.title}
@@ -70,19 +71,24 @@ export default function AdminHomePage(product: Product) {
                 <Td data-cy="product-price">{product.price}</Td>
                 <Td>
                   <Flex justify="center" alignItems="center" height="100%">
-                    <Button
-                      data-cy="admin-edit-product"
-                      bg="rgba(78, 199, 145, 1)"
-                      color="white"
-                      size="sm"
-                      mr="20px"
-                      _hover={{
-                        transform: "translateY(2px)",
-                        boxShadow: "lg",
-                      }}
+                    <NextLink
+                      href="/admin/product/edit"
+                      data-cy="admin-add-product"
                     >
-                      Edit
-                    </Button>
+                      <Button
+                        data-cy="admin-edit-product"
+                        bg="rgba(78, 199, 145, 1)"
+                        color="white"
+                        size="sm"
+                        mr="20px"
+                        _hover={{
+                          transform: "translateY(2px)",
+                          boxShadow: "lg",
+                        }}
+                      >
+                        Edit
+                      </Button>
+                    </NextLink>
                     <Button
                       data-cy="admin-remove-product"
                       colorScheme="red"
@@ -91,6 +97,7 @@ export default function AdminHomePage(product: Product) {
                         transform: "translateY(2px)",
                         boxShadow: "lg",
                       }}
+                      onClick={() => removeProduct(product)}
                     >
                       Delete
                     </Button>
