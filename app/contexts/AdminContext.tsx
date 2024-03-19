@@ -33,32 +33,16 @@ function AdminProvider(props: PropsWithChildren) {
 
   const addProduct = (newProduct: Product) => {
     setProducts((currentProducts) => {
-      const isProductPresent = currentProducts.some(
-        (product) => product.id === newProduct.id
-      );
-
-      if (!isProductPresent) {
-        const updatedProducts = [...currentProducts, newProduct];
-        localStorage.setItem("products", JSON.stringify(updatedProducts));
-        toast({
-          title: "Product added",
-          description: `${newProduct.title} has been added to the store`,
-          status: "success",
-          duration: 3000,
-          isClosable: true,
-        });
-        return updatedProducts;
-      } else {
-        toast({
-          title: "Product already exists",
-          description: `${newProduct.title} already exists in the store`,
-          status: "warning",
-          duration: 3000,
-          isClosable: true,
-        });
-
-        return currentProducts;
-      }
+      const updatedProducts = [...currentProducts, newProduct];
+      localStorage.setItem("products", JSON.stringify(updatedProducts));
+      return updatedProducts;
+    });
+    toast({
+      title: "Product added",
+      description: `${newProduct.title} has been added to the store`,
+      status: "success",
+      duration: 3000,
+      isClosable: true,
     });
   };
 
