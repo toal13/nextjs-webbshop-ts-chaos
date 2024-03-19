@@ -103,9 +103,7 @@ export default function ProductForm(props: Props) {
                       autoComplete='id'
                       focusBorderColor='brand.400'
                     />
-                    <FormErrorMessage data-cy='product-title-error'>
-                      {form.errors.id}
-                    </FormErrorMessage>
+                    <FormErrorMessage>{form.errors.id}</FormErrorMessage>
                   </FormControl>
                 )}
               </Field>
@@ -139,7 +137,7 @@ export default function ProductForm(props: Props) {
                     <FormLabel>Image</FormLabel>
                     <Input
                       {...field}
-                      data-cy='product-image-error'
+                      data-cy='product-image'
                       autoComplete='image'
                       focusBorderColor='brand.400'
                       onChange={handleImageChange}
@@ -170,7 +168,6 @@ export default function ProductForm(props: Props) {
                 )}
               </Field>
               <Button
-                data-cy='admin-add-product'
                 mt='2rem'
                 type='submit'
                 bg='#E4A757'
