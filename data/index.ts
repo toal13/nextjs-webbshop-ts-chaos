@@ -48,7 +48,14 @@ export const ProductSchema = Yup.object().shape<
   image: Yup.string().required("Please enter the image url").url().nullable(),
   title: Yup.string().required("Please enter the product title"),
   description: Yup.string().required("Please enter the product description"),
-  price: Yup.string().required("Please enter the product price"),
+  price: Yup.string()
+    .required("Please enter the product price")
+    .matches(/^\d+(\.\d+)?$/, "Price must be a number") // Ensures the input is numeric
+    .test(
+      "is-greater-than-zero",
+      "Price must be greater than zero",
+      (value) => parseFloat(value!) > 0 // Uses parseFloat to convert the string to a number
+    ),
 });
 
 export interface CartItem extends Product {
