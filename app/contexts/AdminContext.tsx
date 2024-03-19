@@ -52,6 +52,7 @@ function AdminProvider(props: PropsWithChildren) {
       (product) => product.id !== item.id
     );
     setProducts(updatedProducts);
+    localStorage.setItem("products", JSON.stringify(updatedProducts));
 
     toast({
       title: "Product removed",
@@ -67,7 +68,7 @@ function AdminProvider(props: PropsWithChildren) {
       value={{
         products,
         addProduct,
-        removeProduct
+        removeProduct,
       }}
     >
       {props.children}
