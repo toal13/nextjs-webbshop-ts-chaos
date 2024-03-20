@@ -69,6 +69,10 @@ function AdminProvider(props: PropsWithChildren) {
         product.id === productId ? { ...product, ...updatedProduct } : product
       )
     );
+    const updatedProducts = products.map((product) =>
+      product.id === productId ? { ...product, ...updatedProduct } : product
+    );
+    localStorage.setItem("products", JSON.stringify(updatedProducts));
   };
 
   return (
@@ -77,7 +81,7 @@ function AdminProvider(props: PropsWithChildren) {
         products,
         addProduct,
         removeProduct,
-        updateProduct
+        updateProduct,
       }}
     >
       {props.children}
