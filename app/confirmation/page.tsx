@@ -18,8 +18,6 @@ import {
   Tr,
   UnorderedList,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { useCart } from "../contexts/CartContext";
 import { useCustomer } from "../contexts/CustomerContext";
 
 function generateRandomOrderNumber(length: number): string {
@@ -35,19 +33,13 @@ function generateRandomOrderNumber(length: number): string {
 }
 
 export default function Confirmation() {
-  const { cart, clearCartSilently } = useCart();
-  const [orderItems] = useState(cart);
   const orderNumber = generateRandomOrderNumber(12);
-  const { customerData } = useCustomer();
-
-  useEffect(() => {
-    clearCartSilently();
-  }, [clearCartSilently]);
+  const { customerData, orderItems } = useCustomer();
 
   const calculateTotalPrice = () => {
     let totalPrice = 0;
     orderItems.forEach((item) => {
-      totalPrice += Number(item.price) * item.quantity;
+      totalPrice += item.price * item.quantity;
     });
     return totalPrice;
   };
