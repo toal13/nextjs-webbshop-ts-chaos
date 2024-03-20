@@ -1,7 +1,7 @@
 "use client";
 
 import ProductForm from "@/app/components/ProductForm";
-import { products } from "@/data";
+import { useAdmin } from "@/app/contexts/AdminContext";
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { DiProlog } from "react-icons/di";
@@ -9,6 +9,7 @@ import { DiProlog } from "react-icons/di";
 type PageProps = { params: { id: string } };
 
 export default function AdminEditProductPage({ params }: PageProps) {
+  const { products } = useAdmin();
   const product = products.find((p) => p.id === params.id);
   const [imagePreview, setImagePreview] = useState("");
 
@@ -48,7 +49,7 @@ export default function AdminEditProductPage({ params }: PageProps) {
           justifyContent="center"
         >
           {!imagePreview && (
-            <Flex gap='0.5rem'>
+            <Flex gap="0.5rem">
               <Text
                 color="orange.400"
                 fontWeight="bold"

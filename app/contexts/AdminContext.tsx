@@ -73,6 +73,13 @@ function AdminProvider(props: PropsWithChildren) {
       product.id === productId ? { ...product, ...updatedProduct } : product
     );
     localStorage.setItem("products", JSON.stringify(updatedProducts));
+    toast({
+      title: "Product updated",
+      description: `${updatedProduct.title} has been updated successfully.`,
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
   };
 
   return (
