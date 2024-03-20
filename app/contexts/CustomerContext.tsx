@@ -1,3 +1,4 @@
+import { CartItem } from "@/data";
 import {
   Dispatch,
   PropsWithChildren,
@@ -19,12 +20,15 @@ interface CustomerData {
 
 interface CustomerContextValue {
   customerData: CustomerData;
+  orderItems: CartItem[];
   setCustomerData: Dispatch<SetStateAction<CustomerData>>;
+  setOrderItems: Dispatch<SetStateAction<CartItem[]>>;
 }
 
 const CustomerContext = createContext({} as CustomerContextValue);
 
 function CustomerContextProvider(props: PropsWithChildren) {
+  const [orderItems, setOrderItems] = useState<CartItem[]>([]);
   const [customerData, setCustomerData] = useState<CustomerData>({
     email: "",
     firstName: "",
@@ -35,10 +39,11 @@ function CustomerContextProvider(props: PropsWithChildren) {
     postalCode: "",
   });
 
-
   return (
     // bilarna - value är det som skickas över kontexten
-    <CustomerContext.Provider value={{ customerData, setCustomerData }}>
+    <CustomerContext.Provider
+      value={{ customerData, setCustomerData, setOrderItems, orderItems }}
+    >
       {props.children}
     </CustomerContext.Provider>
   );

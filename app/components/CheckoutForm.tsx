@@ -14,14 +14,18 @@ import {
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/navigation";
+import { useCart } from "../contexts/CartContext";
 import { useCustomer } from "../contexts/CustomerContext";
 
 export default function CheckoutForm() {
   const router = useRouter();
-  const { setCustomerData } = useCustomer();
+  const { setCustomerData, setOrderItems } = useCustomer();
+  const { clearCartSilently, cart } = useCart();
   const handleSubmit = (values: FormValues) => {
     console.log(values);
     setCustomerData(values);
+    setOrderItems(cart);
+    clearCartSilently();
     router.push("/confirmation");
   };
 
