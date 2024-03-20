@@ -178,7 +178,7 @@ export default function ProductForm(props: Props) {
                 variant='solid'
                 isLoading={formikProps.isSubmitting}
               >
-                {isEdit ? "UPDATE PRODUCT" : "ADD PRODUCT"}
+                {isEdit ? "UPDATE PRODUCT" : "ADD PRODUCT" }
               </Button>
             </Form>
           );

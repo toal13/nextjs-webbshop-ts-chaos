@@ -1,78 +1,29 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import { useAdmin } from "@/app/contexts/AdminContext";
+"use client";
+
 import ProductForm from "@/app/components/ProductForm";
-import { Product } from "@/data";
+import { products } from "@/data";
+import { Heading } from "@chakra-ui/react";
 
-interface AdminEditProductPageProps {
-  productId: string;
-}
+type PageProps = { params: { id: string } };
 
-export default function AdminEditProductPage({
-  productId,
-}: AdminEditProductPageProps) {
-  const router = useRouter();
-  const { products, updateProduct } = useAdmin();
-
-  // Find the product with the matching productId
-  const product = products.find((p) => p.id === productId);
-
-  // Function to handle save button click
-  const handleSave = (updatedProduct: Product) => {
-    // Update the product
-    updateProduct(productId, updatedProduct);
-    // Navigate back to the admin page
-    router.push("/admin");
-  };
-
-  // Function to handle exit button click
-  const handleExit = () => {
-    // Navigate back to the admin page
-    router.push("/admin");
-  };
+export default function AdminEditProductPage({ params }: PageProps) {
+  const product = products.find((p) => p.id === params.id);
+  /* const handleUpdate = (updatedProduct) => {
+    updatedProduct(params.id, updatedProduct);
+  }; */
+  if (!product) {
+    return (
+      <main>
+        console.log(params.id)
+        <span> Product Does Not Exist - 404</span>
+      </main>
+    );
+  }
 
   return (
-    <Box>
-      <Text textAlign="center" fontSize="1.7rem" mt="2rem">
-        Edit Product
-      </Text>
-      {product && (
-        <Flex
-          flexDir={{ base: "column", md: "row" }}
-          rounded="lg"
-          justify="center"
-          alignItems="center"
-          width="80%"
-          m="2rem auto"
-          p="1rem"
-          gap={{ base: "1rem", md: "2rem" }}
-        >
-          <ProductForm product={product} />
-          <Flex mt="2rem" justifyContent="center" gap="1rem">
-            <Button
-              mt="2rem"
-              type="submit"
-              bg="#E4A757"
-              _hover={{ bg: "#efdbc2" }}
-              variant="solid"
-              isLoading={formikProps.isSubmitting}
-              onClick={() => {
-                // Call the updateProduct function with the updated product data
-                updateProduct(formikProps.values.id, formikProps.values);
-                // Perform any additional actions if needed
-                console.log("Product updated!");
-                // Call handleSubmit to submit the form
-                formikProps.handleSubmit();
-              }}
-            >
-              {isEdit ? "UPDATE PRODUCT" : "ADD PRODUCT"}
-            </Button>
-            <Button onClick={handleExit} colorScheme="gray">
-              Exit
-            </Button>
-          </Flex>
-        </Flex>
-      )}
-    </Box>
+    <div>
+      <Heading>The edit product page.</Heading>
+      <ProductForm product={product} />
+    </div>
   );
 }
