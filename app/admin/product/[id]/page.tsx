@@ -8,9 +8,7 @@ type PageProps = { params: { id: string } };
 
 export default function AdminEditProductPage({ params }: PageProps) {
   const product = products.find((p) => p.id === params.id);
-  /* const handleUpdate = (updatedProduct) => {
-    updatedProduct(params.id, updatedProduct);
-  }; */
+
   if (!product) {
     return (
       <main>
