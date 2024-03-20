@@ -1,11 +1,29 @@
-import { Text } from "@chakra-ui/react";
-export default function AdminEditProductPage() {
-  // hämta produkten utifrån params
+"use client";
+
+import ProductForm from "@/app/components/ProductForm";
+import { products } from "@/data";
+import { Heading } from "@chakra-ui/react";
+
+type PageProps = { params: { id: string } };
+
+export default function AdminEditProductPage({ params }: PageProps) {
+  const product = products.find((p) => p.id === params.id);
+  /* const handleUpdate = (updatedProduct) => {
+    updatedProduct(params.id, updatedProduct);
+  }; */
+  if (!product) {
+    return (
+      <main>
+        console.log(params.id)
+        <span> Product Does Not Exist - 404</span>
+      </main>
+    );
+  }
 
   return (
     <div>
-      <Text>The edit product page.</Text>
-      {/* <ProductForm product={product} /> */}
+      <Heading>The edit product page.</Heading>
+      <ProductForm product={product} />
     </div>
   );
 }

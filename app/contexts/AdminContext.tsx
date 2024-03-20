@@ -13,6 +13,7 @@ interface AdminContextValue {
   products: Product[];
   addProduct: (product: Product) => void;
   removeProduct: (product: Product) => void;
+  updateProduct: (productId: string, updatedProduct: Product) => void;
 }
 
 const AdminContext = createContext({} as AdminContextValue);
@@ -52,7 +53,6 @@ function AdminProvider(props: PropsWithChildren) {
       (product) => product.id !== item.id
     );
     setProducts(updatedProducts);
-    localStorage.setItem("products", JSON.stringify(updatedProducts));
 
     toast({
       title: "Product removed",
@@ -63,12 +63,21 @@ function AdminProvider(props: PropsWithChildren) {
     });
   };
 
+  const updateProduct = (productId: string, updatedProduct: Product) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === productId ? { ...product, ...updatedProduct } : product
+      )
+    );
+  };
+
   return (
     <AdminContext.Provider
       value={{
         products,
         addProduct,
         removeProduct,
+        updateProduct
       }}
     >
       {props.children}

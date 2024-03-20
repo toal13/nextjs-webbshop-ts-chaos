@@ -179,7 +179,7 @@ export default function ProductForm(props: Props) {
                 isLoading={formikProps.isSubmitting}
                 onClick={() => formikProps.handleSubmit()}
               >
-                {isEdit ? "UPDATE PRODUCT" : "ADD PRODUCT"}
+                {isEdit ? "UPDATE PRODUCT" : "ADD PRODUCT" }
               </Button>
             </Form>
           );

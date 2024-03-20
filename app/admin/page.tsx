@@ -1,6 +1,7 @@
 "use client";
 
-import { Product } from "@/data";
+import { Product, products } from "@/data";
+import { Link } from "@chakra-ui/next-js";
 import {
   Button,
   Flex,
@@ -120,16 +121,17 @@ export default function AdminHomePage() {
                 </Td>
                 <Td data-cy='product-price'>{product.price}</Td>
                 <Td>
-                  <Flex justify='center' alignItems='center' height='100%'>
-                    <NextLink
-                      href='/admin/product/edit'
-                      data-cy='admin-edit-product'
+                  <Flex justify="center" alignItems="center" height="100%">
+                    <Link
+                      href={`admin/product/${product.id}`}
+                      _hover={{ textDecoration: "none" }}
                     >
                       <Button
-                        bg='rgba(78, 199, 145, 1)'
-                        color='white'
-                        size='sm'
-                        mr='20px'
+                        data-cy="admin-edit-product"
+                        bg="rgba(78, 199, 145, 1)"
+                        color="white"
+                        size="sm"
+                        mr="3px"
                         _hover={{
                           transform: "translateY(2px)",
                           boxShadow: "lg",
@@ -137,7 +139,7 @@ export default function AdminHomePage() {
                       >
                         Edit
                       </Button>
-                    </NextLink>
+                    </Link>
                     <Button
                       data-cy='admin-remove-product'
                       colorScheme='red'
