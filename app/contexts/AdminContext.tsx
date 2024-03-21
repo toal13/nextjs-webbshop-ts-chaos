@@ -69,6 +69,17 @@ function AdminProvider(props: PropsWithChildren) {
         product.id === productId ? { ...product, ...updatedProduct } : product
       )
     );
+    const updatedProducts = products.map((product) =>
+      product.id === productId ? { ...product, ...updatedProduct } : product
+    );
+    localStorage.setItem("products", JSON.stringify(updatedProducts));
+    toast({
+      title: "Product updated",
+      description: `${updatedProduct.title} has been updated successfully.`,
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
   };
 
   return (
@@ -77,7 +88,7 @@ function AdminProvider(props: PropsWithChildren) {
         products,
         addProduct,
         removeProduct,
-        updateProduct
+        updateProduct,
       }}
     >
       {props.children}

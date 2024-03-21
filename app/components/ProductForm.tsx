@@ -20,7 +20,7 @@ interface Props {
 }
 
 export default function ProductForm(props: Props) {
-  const { addProduct } = useAdmin();
+  const { addProduct, updateProduct } = useAdmin();
   const router = useRouter();
   const isEdit = Boolean(props.product);
   const newId = createRandomId();
@@ -31,7 +31,8 @@ export default function ProductForm(props: Props) {
   ) => {
     console.log(values);
     if (isEdit) {
-      console.log("Product updated!");
+      updateProduct(values.id, values);
+      router.push("/admin");
     } else {
       addProduct(values);
       router.push("/admin");
