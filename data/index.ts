@@ -67,73 +67,73 @@ export const products: Product[] = [
   {
     id: "1",
     image:
-      "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?q=80&w=2004&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "dining table",
+      "https://www.nordicnest.se/assets/blobs/stolab-carl-matbord-delbart-115-cm-smoked-oak/579053-01_40_EnvironmentImage-aa294b9cb1.jpeg?preset=medium&dpr=2",
+    title: "Divisible dining table",
     description:
-      "Irure irure incididunt ullamco dolor consectetur reprehenderit sit magna ex. Anim sint aliqua dolor eu. Labore et non pariatur ex eu. Ut duis eu anim et consectetur amet velit non.",
-    price: 15000,
+      "Carl divisible dining table Ø115 cm from Stolab is a round extendable table with space for up to four insert plates. If you want to use the table with more than two insert plates, you need to supplement with a support leg. The soft design language of the Carl table is a tribute to Carl Malmsten and Lilla Åland. The tabletop has a beveled edge and the exposed legs have a pleasantly turned shape. With its soft shapes and classic expression, Carl is a perfect table for the Lilla Åland chairs.",
+    price: 26990,
   },
   {
     id: "2",
     image:
-      "https://images.unsplash.com/photo-1550581190-9c1c48d21d6c?q=80&w=2009&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://www.nordicnest.se/assets/blobs/woud-arc-soffbord-66-cm-valnot/500782-01_5_EnvironmentImage-58d68ab4fc.jpg?preset=medium&dpr=2",
     title: "table",
     description:
-      "Laborum excepteur amet velit ex ipsum cillum culpa dolor magna commodo proident duis occaecat est. Eiusmod reprehenderit exercitation eiusmod velit et do velit. Enim anim est irure nisi proident. Aliquip consectetur cillum non labore minim sit eu ad officia cillum excepteur esse dolore cillum. Mollit do aliqua cupidatat velit id commodo laboris.",
-    price: 18000,
+      "Arc coffee table from Danish Woud is made of wood in a soft round shape with three legs designed by Julie Begtrup and Ditte Vad. The table is both beautiful and functional, and under the rotatable table top you will find a hidden storage space for the little things you want close at hand. You can also combine the Arc coffee table with the side table from the same series to create a beautiful furniture group.",
+    price: 10609,
   },
   {
     id: "3",
     image:
-      "https://images.unsplash.com/photo-1584589167171-541ce45f1eea?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "plant",
+      "https://www.nordicnest.se/assets/blobs/hoptimist-hoptimist-dog-figur-69-cm-brown/586552-01_40_EnvironmentImage-e6507dde62.jpeg?preset=medium&dpr=2",
+    title: "Hoptimist Dog figurine 6,9 cm",
     description:
-      "Culpa incididunt laborum quis elit magna nulla Lorem do laboris excepteur dolore pariatur. Commodo aute et id proident Lorem elit nostrud fugiat commodo ea nisi. Veniam elit magna reprehenderit cillum mollit ullamco deserunt aliqua dolor consequat ex. Irure Lorem exercitation et ut dolor cupidatat deserunt qui quis laborum proident do. Lorem ea pariatur ipsum esse elit cillum duis nulla pariatur aute tempor aliqua eiusmod. Ullamco minim incididunt excepteur exercitation nisi deserunt et amet minim est veniam proident veniam. Veniam labore magna voluptate occaecat.",
-    price: 600,
+      "Hoptimist Dog figurine from Danish Hoptimist is a lovingly playful dog for all dog lovers. Just as a dog's great mood is contagious and makes us happy, this adorable Hoptimist dog will jump for joy when you pet it. Animals bring joy to all of us, and in the big family of happy Hoptimists there are of course the cutest animals. Created by Gustav Ehrenreich in the 1960s as an eternal reminder to remain positive and optimistic, this Hoptimist spreads joy and positivity in your home. Let the happy Hoptimist dog brighten your day!",
+    price: 249,
   },
   {
     id: "4",
     image:
-      "https://images.unsplash.com/photo-1567459045800-4d77c81fc3f5?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "lamp",
+      "https://www.nordicnest.se/assets/blobs/new-works-kizu-portable-bordslampa-gris-du-marais/513298-01_9_EnvironmentImage-56e2e9c717.jpeg?preset=medium&dpr=2",
+    title: "Kizu portable table lamp",
     description:
-      "In magna sunt nulla excepteur aliquip. Excepteur eu esse in officia non eiusmod esse ullamco deserunt dolore. Nostrud ipsum ipsum velit nostrud exercitation aliqua ea cillum tempor cillum sit proident ut. Incididunt do incididunt do adipisicing eu qui cupidatat ipsum anim. Pariatur cillum ipsum ullamco id sint ex proident magna et. Occaecat quis do minim labore sint cillum. Irure quis nostrud voluptate ad commodo non adipisicing aliqua velit.",
-    price: 1200,
+      "The Kizu portable table lamp from Danish New Works is a portable lamp that is perfect for carrying with you wherever you want. The lamp has a soft design language where the marble lamp base and the single-coloured acrylic lampshade have a small touch surface, which makes it look like the lampshade is balancing on the lamp base. The award-winning Norwegian designer Lars Tornøe is behind the design of this table lamp, which gives off a soft and pleasant glow, where you can easily adjust the light according to occasion and need with the help of the dimmer control in three steps.",
+    price: 2395,
   },
   {
     id: "5",
     image:
-      "https://images.unsplash.com/photo-1567016520496-0cb37d8467a7?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "cabinet",
+      "https://www.nordicnest.se/assets/blobs/audo-copenhagen-hashira-cluster-pendel-raw-45-cm/508812-01_5_EnvironmentImage-4d4d99478d.jpg?preset=medium&dpr=2",
+    title: " Hashira Cluster pendant raw",
     description:
-      "Consectetur aliquip sunt adipisicing aliqua officia magna consectetur. Do nisi nisi in nostrud anim enim nostrud tempor sunt ut laboris laboris pariatur. Nisi eu velit dolor nostrud. Id exercitation magna dolor voluptate laboris id. Tempor fugiat occaecat sunt ullamco ullamco ea sint ex eiusmod ea est dolore. Do sint aliquip id excepteur ipsum aute velit.",
-    price: 2500,
+      "The Hashira Cluster pendant raw from Denmark's Audo Copenhagen is designed by Norm Architects and is a ceiling lamp with a geometric design language consisting of three cylindrical shades that are handmade in beautiful linen fabric. Thanks to the semi-transparent material of the shades, the graphic structure on the inside is highlighted in an effective way when the lamp is lit. The mammoth pendulum hangs from a stylish textile cord and fits just as well over the dining table as it does over the stairs to the upper floor.",
+    price: 9195,
   },
   {
     id: "6",
     image:
-      "https://images.pexels.com/photos/6758773/pexels-photo-6758773.jpeg?auto=compress&cs=tinysrgb&w=800",
-    title: "dining table",
+      "https://www.nordicnest.se/assets/blobs/tradition-in-between-stol-sk1-valnot/28465-04-02-9e7945d410.jpg?preset=medium&dpr=2",
+    title: "In Between chair SK1",
     description:
-      "Irure irure incididunt ullamco dolor consectetur reprehenderit sit magna ex. Anim sint aliqua dolor eu. Labore et non pariatur ex eu. Ut duis eu anim et consectetur amet velit non.",
-    price: 15000,
+      "The In Between chair from &Tradition is designed by Sami Kallio, a Finnish-Swedish designer specialized in wood and traditional woodworking. To manufacture In Between, two classic techniques are used: Molding to produce the seat and backrest and turning to produce the round legs and armrest. It is a stylish and comfortable chair that fits just as well at the dining table as in the office. The name In Between refers to what distinguishes the chair most, namely the gaps between the backrest and the side panels.",
+    price: 6710,
   },
   {
     id: "7",
     image:
-      "https://images.pexels.com/photos/3144581/pexels-photo-3144581.jpeg?auto=compress&cs=tinysrgb&w=800",
-    title: "dining table",
+      "https://www.nordicnest.se/assets/blobs/ferm-living-ripple-long-drink-glas-4-pack-smoked-grey/31545-02-01-088a7655db.jpg?preset=medium&dpr=2",
+    title: "Ripple long drink glass 4-pack",
     description:
-      "Irure irure incididunt ullamco dolor consectetur reprehenderit sit magna ex. Anim sint aliqua dolor eu. Labore et non pariatur ex eu. Ut duis eu anim et consectetur amet velit non.",
-    price: 15000,
+      "Ripple long drink glass is a set of four mouth-blown glasses from Ferm Living. The glasses are part of the elegant Ripple series, which is characterized by its ribbed structure, straight lines and sophisticated expression. Just like the other glasses in the series, these also have different geometric shapes, which creates a dynamic and exciting look while also being stackable. These glasses can be used at all types of meals but are also perfect for bubbly, fresh and fruity drinks when the party is a fact!",
+    price: 699,
   },
   {
     id: "8",
     image:
-      "https://images.pexels.com/photos/276651/pexels-photo-276651.jpeg?auto=compress&cs=tinysrgb&w=800",
-    title: "dining table",
+      "https://www.nordicnest.se/assets/blobs/fritz-hansen-studio-roso-spegel-rund-gron/37329-01-02-34f4eaece0.jpg?preset=medium&dpr=2",
+    title: "Fritz Hansen's round mirror",
     description:
-      "Irure irure incididunt ullamco dolor consectetur reprehenderit sit magna ex. Anim sint aliqua dolor eu. Labore et non pariatur ex eu. Ut duis eu anim et consectetur amet velit non.",
-    price: 15000,
+      "Fritz Hansen's round mirror with colored glass that brings to mind watercolor paintings is created by the designer duo Studio Roso consisting of Sophie Nielsen and Rolf Knudsen. The mirror is made of mirror glass that has been colored in a unique way in blue-green shades that change depending on the light in the room and where you look from. With this mirror on the wall, you give the room a lift that is difficult to achieve with a traditional piece of art!",
+    price: 11999,
   },
 ];
