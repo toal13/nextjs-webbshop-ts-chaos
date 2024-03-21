@@ -1,11 +1,11 @@
 "use client";
 
-import { Circle, Flex, Link } from "@chakra-ui/react";
+import { Circle, Flex, Icon, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { HiOutlineShoppingBag } from "react-icons/hi";
+import { IoPersonOutline } from "react-icons/io5";
 import { LuHeart } from "react-icons/lu";
 import { useCart } from "../contexts/CartContext";
-import AdminSidebar from "./AdminSidebar";
 
 export default function NavIcons() {
   const { cartCount } = useCart();
@@ -18,22 +18,46 @@ export default function NavIcons() {
       justify='center'
       align='center'
     >
-      <NextLink
-        href='/admin'
-        data-cy='admin-link'
-        color='black'
-        // _hover={{ color: "brown" }}
-        // textDecor='none'
-      >
-        {/* <IoPersonOutline /> */}
-        <AdminSidebar />
+      <NextLink href='/admin' data-cy='admin-link' color='black'>
+        {" "}
+        <Icon
+          fontSize='1.7rem'
+          transition={"transform 0.2s ease-in-out"}
+          _hover={{
+            cursor: "pointer",
+            color: "brown",
+            transform: "scale(1.2)",
+          }}
+        >
+          <IoPersonOutline size='1.6rem' />
+        </Icon>
       </NextLink>
       <Link color='black' _hover={{ color: "brown" }} textDecor='none'>
-        <LuHeart />
+        <Icon
+          fontSize='1.7rem'
+          transition={"transform 0.2s ease-in-out"}
+          _hover={{
+            cursor: "pointer",
+            color: "brown",
+            transform: "scale(1.2)",
+          }}
+        >
+          <LuHeart size='1.5rem' />
+        </Icon>
       </Link>
 
       <NextLink href='/checkout' passHref color='black' data-cy='cart-link'>
-        <HiOutlineShoppingBag />
+        <Icon
+          fontSize='1.7rem'
+          transition={"transform 0.2s ease-in-out"}
+          _hover={{
+            cursor: "pointer",
+            color: "brown",
+            transform: "scale(1.2)",
+          }}
+        >
+          <HiOutlineShoppingBag size='1.6rem' />
+        </Icon>
       </NextLink>
       {cartCount > 0 && (
         <Circle
@@ -42,8 +66,8 @@ export default function NavIcons() {
           color='white'
           fontSize='1rem'
           position='absolute'
-          top='-0.6rem'
-          right='-0.7rem'
+          top='-0.5rem'
+          right='-0.5rem'
           data-cy='cart-items-count-badge'
         >
           {cartCount}
