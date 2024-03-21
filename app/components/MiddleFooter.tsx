@@ -10,7 +10,7 @@ import {
 
 export function MiddleFooter() {
   return (
-    <Center bg="#FEE0B3">
+    <Center as='footer' bg="#FEE0B3">
       <Box color="black">
         <center>
           <Heading
@@ -24,7 +24,7 @@ export function MiddleFooter() {
         </center>
         <Container as={Stack} maxW={"6xl"} py={10}>
           <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
-            <Stack align={"flex-start"}>
+            <Stack align={"flex-start"} pl={8}>
               <Heading fontWeight="bold" fontSize={"xl"} mb={2}>
                 Customer Service
               </Heading>
