@@ -1,37 +1,46 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/G1YVQsIF)
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NEXT DESIGN
 
-## Getting Started
+## Introduktion
 
-First, run the development server:
+Detta är ett skolprojekt i javascript kurs på Medieinstitutet Göteborg. Projektet går ut på att vi skapar en webbshop med hjälp av React, NextJS, Typescript och ett designsystem av vårt val vilket blev ChakraUI. Designen och färgtemat av `NEXT DESIGN` är inspirerat av en existerade inredningsbutiken `NORDIC NEST`.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Beskrivning
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Enligt uppgiftskravet ska webbshopen bestå av minst fyra stycken sidor med en startsida, en produktsida, en kassasida och en bekräftelsesida.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Startsida
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Startsidan presenterar alla produkter. Det är möjligt att klicka på en produkt för gå till produktsidan eller så kan man direkt lägga till produkten i varukorgen.
 
-## Learn More
+### Produktsida
+  Här kan användaren läsa beskrivningen om den valda produkten och lägga till den i varukorgen. 
 
-To learn more about Next.js, take a look at the following resources:
+### Kassasidan
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Kundvagn
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Listar tillagda produkter (bild & titel) dess antal, pris, kundvagnens totalpris och man kan uppdatera kundvagnen genom att ändra antalet eller ta bort.
 
-## Deploy on Vercel
+#### Leveransuppgifter
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Här fyller användaren formuläret med namn, mail, telefonnummer och adress. Fälten i formuläret går automatisk i fyllas. 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Bekräftelsesidan
+
+När användaren har fyllt i alla delar av formuläret på kassasidan och slutför köpet, kommer det en bekräftelse på köpet tillsammans med ett unikt ordernummer. 
+
+Spelprojektet har utfört av [Catalina](https://github.com/CatAvadani), [Eleni](https://github.com/Eleni001) och [Tomoyo](https://github.com/toal13) som är FED23G studenter.
+
+
+## Länk till webshoppen:
+
+[NEXT DESIGN](link)
+
+
+### Installation
+
+Kör kommandot `npm install` för att installera nödvändiga moduler.
+
+### Starta projektet
+
+Kör kommandot `npm run dev` för att starta projektet och se ändringar live i din webbläsare!
