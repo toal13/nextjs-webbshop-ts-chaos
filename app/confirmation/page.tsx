@@ -45,7 +45,7 @@ export default function Confirmation() {
   };
 
   return (
-    <Container maxW="container.lg" py={10}>
+    <Container maxW="container.lg" py={10} px={0}>
       <Box mb={4}>
         <Heading as="h1" mb={6}>
           Order Confirmation

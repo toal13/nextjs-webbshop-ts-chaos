@@ -1,20 +1,12 @@
-import { Box, Container, Image, Square, Stack, Text } from "@chakra-ui/react";
+import { Image, Square, Stack, Flex, Box } from "@chakra-ui/react";
 import { MiddleFooter } from "./MiddleFooter";
 
 function Footer() {
   return (
-    <>
-    <MiddleFooter />
-    <Box bg="black">
-      <Container
-        as={Stack}
-        maxW={"6xl"}
-        pt={4}
-        spacing={4}
-        justify={"center"}
-        align={"center"}
-      >
-        <Stack direction={"row"} spacing={6}>
+    <Box as="footer">
+      <MiddleFooter />
+      <Flex py="5%" bg="black" color="gray.500" justify="space-around">
+        <Stack direction={"row"} spacing={2}>
           <Square size={{ base: "60px", md: "100px" }}>
             <Image src="klarna.png" alt="klarna" />
           </Square>
@@ -31,17 +23,8 @@ function Footer() {
             <Image src="swish.png" alt="swish" />
           </Square>
         </Stack>
-      </Container>
-      <Box pb={6}>
-        <Text fontSize={"sm"} textAlign={"center"} color="whitesmoke">
-          Next Design By Group Chaos
-        </Text>
-        <Text fontSize={"sm"} textAlign={"center"} color="whitesmoke">
-          © 2024 All rights reserved
-        </Text>
-      </Box>
+      </Flex>
     </Box>
-    </>
   );
 }
 
